@@ -7,13 +7,20 @@ function swap(array, idx1, idx2) {
 
 
 function bubbleSort(array) {
-    let sorted = true
-    while (sorted) {
-        sorted = false
-        if( array[i] > array[i+1])
-        
-    }
+   let sorted = false;
+
+   while(!sorted) {
+        sorted = true
+        for( let i = 0; i < array.length; i++) {
+            if (array[i] > array[i+1]){
+                swap(array, i, i+1)
+                sorted = false
+            }
+        }
+   }
+   return array
 }
+
 
 
 module.exports = {
