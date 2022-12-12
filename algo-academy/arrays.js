@@ -65,3 +65,34 @@ let w = [1,1]
 console.log(maxArea(w))
  
 
+
+
+/**
+ * @param {number} target
+ * @param {number[]} nums
+ * @return {number}
+ */
+ var minSubArrayLen = function(target, nums) {
+    let left = 0;
+    let total = 0;
+    let res = Infinity;
+
+    for (let right = 0; right < nums.length; right++){
+        total += nums[right];
+
+        while(total >= target){
+            res = Math.min(right-left+1, res)
+            total -= nums[left]
+            left++;
+        }
+    }
+    return res === Infinity ? 0 : res;
+};
+
+let t = 7
+let n = [2,3,1,2,4,3]
+console.log(minSubArrayLen(t, n))
+
+let target = 11
+let array = [1,1,1,1,1,1,1,1]
+console.log(minSubArrayLen(target, array))
