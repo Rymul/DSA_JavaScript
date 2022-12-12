@@ -148,3 +148,43 @@ let b = [["8","3",".",".","7",".",".",".","."]
 
 console.log(isValidSudoku(b))
 console.log(false, "Expected Output")
+
+
+/**
+ * 128. Longest Consecutive Sequence
+ * Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence.
+ * You must write an algorithm that runs in O(n) time.
+ */
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+ var longestConsecutive = function(nums) {
+    const numsSet = new Set(nums);
+    let longestSeq = 0;
+    
+    for(let i = 0; i < nums.length; i++){
+        const num = nums[i];
+        const prev = num - 1;
+        let next = num + 1;
+        let seq = 1;
+
+        if(!numsSet.has(prev)){
+            while(numsSet.has(next)){
+                seq++;
+                next++;
+            }
+            longestSeq = Math.max(longestSeq, seq);
+        }
+    }
+    return longestSeq;
+};
+
+let nums = [100,4,200,1,3,2];
+console.log(longestConsecutive(nums))
+console.log(4, "Expected Output")
+
+let n = [0,3,7,2,5,8,4,6,0,1]
+console.log(longestConsecutive(n))
+console.log(9, "Expected Output")
