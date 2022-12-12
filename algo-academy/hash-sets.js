@@ -78,3 +78,73 @@ let s = ["eat","tea","tan","ate","nat","bat"]
 console.log(groupAnagrams(s))
 console.log([["bat"],["nat","tan"],["ate","eat","tea"]], "Expected Output" )
 
+
+
+/**
+ * Valid Sudoku
+ * Determine if a 9 x 9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules:
+ * Each row must contain the digits 1-9 without repetition.
+ * Each column must contain the digits 1-9 without repetition.
+ * Each of the nine 3 x 3 sub-boxes of the grid must contain the digits 1-9 without repetition.
+ */
+
+
+
+/**
+ * @param {character[][]} board
+ * @return {boolean}
+ */
+ var isValidSudoku = function(board) {
+    
+    let row = {};
+    let col = {};
+    let box = {};
+
+    for(let r = 0; r < board.length; r++) {
+        for(let c = 0; c < board[0].length; c++){
+            let currentVal = board[r][c];
+            if(currentVal === ".") continue;
+
+            const boxPos = `${Math.floor(r/3)}, ${Math.floor(c/3)}`;
+
+            if(!row[r]) row[r] = new Set();
+            if(!col[c]) col[c] = new Set();
+            if(!box[boxPos]) box[boxPos] = new Set();
+
+            if(row[r].has(currentVal) || col[c].has(currentVal) || box[boxPos].has(currentVal)) return false;
+
+            row[r].add(currentVal);
+            col[c].add(currentVal);
+            box[boxPos].add(currentVal);
+
+        }
+    }
+    return true
+
+};
+
+let board = [["5","3",".",".","7",".",".",".","."]
+,["6",".",".","1","9","5",".",".","."]
+,[".","9","8",".",".",".",".","6","."]
+,["8",".",".",".","6",".",".",".","3"]
+,["4",".",".","8",".","3",".",".","1"]
+,["7",".",".",".","2",".",".",".","6"]
+,[".","6",".",".",".",".","2","8","."]
+,[".",".",".","4","1","9",".",".","5"]
+,[".",".",".",".","8",".",".","7","9"]]
+
+console.log(isValidSudoku(board))
+console.log(true, "Expected Output")
+
+let b = [["8","3",".",".","7",".",".",".","."]
+,["6",".",".","1","9","5",".",".","."]
+,[".","9","8",".",".",".",".","6","."]
+,["8",".",".",".","6",".",".",".","3"]
+,["4",".",".","8",".","3",".",".","1"]
+,["7",".",".",".","2",".",".",".","6"]
+,[".","6",".",".",".",".","2","8","."]
+,[".",".",".","4","1","9",".",".","5"]
+,[".",".",".",".","8",".",".","7","9"]]
+
+console.log(isValidSudoku(b))
+console.log(false, "Expected Output")
