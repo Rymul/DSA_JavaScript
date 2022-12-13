@@ -32,3 +32,10 @@
 let head = [3,2,0,-4]
 console.log(hasCycle(head))
 console.log(true, "Expected Output")
+
+
+
+var reverseList = function(head, prev = null){
+    if(head === null) return prev;
+    
+}
