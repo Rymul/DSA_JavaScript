@@ -149,3 +149,38 @@ console.log([[3],[9,20],[15,7]], "expected output")
     return hasPathSum(root.left, targetSum) || hasPathSum(root.right, targetSum) 
 };
 
+
+
+
+
+/**
+ * 1448. Count Good Nodes in Binary Tree
+ * Given a binary tree root, a node X in the tree is named good if in the path from root to X there are no nodes with a value greater than X.
+ * Return the number of good nodes in the binary tree.
+ */
+
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+ var goodNodes = function(root, maxVal = root.val) {
+    if(!root) return 0;
+
+    let res = root.val >= maxVal ? 1 : 0;
+
+    maxVal = Math.max(maxVal, root.val);
+    res += goodNodes(root.left, maxVal);
+    res += goodNodes(root.right, maxVal);
+
+    return res;
+  
+};
+
