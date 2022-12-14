@@ -77,3 +77,43 @@ console.log([], "Expected Output")
 let x = [1,null,2,3]
 console.log(inorderTraversal(x))
 console.log([1,3,2], "expected output")
+
+
+
+/**
+ * 102. Binary Tree Level Order Traversal
+ * Given the root of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level).
+ */
+
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[][]}
+ */
+ var levelOrder = function(root) {
+    if (!root) return [];
+
+    const queue = [{node: root, level: 0}];
+    const output = [];
+
+    while (queue.length > 0) {
+        const {node, level} = queue.shift();
+        if (!output[level]) output.push([]);
+        output[level].push(node.val);
+        
+        if(node.left !== null) queue.push({node: node.left, level: level+1});
+        if(node.right !== null) queue.push({node: node.right, level: level+1});
+    }
+    return output
+};
+
+let y = [3,9,20,null,null,15,7]
+console.log(levelOrder(y))
+console.log([[3],[9,20],[15,7]], "expected output")
