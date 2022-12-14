@@ -184,3 +184,42 @@ console.log([[3],[9,20],[15,7]], "expected output")
   
 };
 
+
+
+/**
+ * 199. Binary Tree Right Side View
+ * Given the root of a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.
+ */
+
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+ var rightSideView = function(root) {
+    if (!root) return [];
+    const queue = [root];
+    const output = [];
+
+    while(queue.length > 0){
+        const length = queue.length
+        let rightSide = null;
+
+        for(let i = 0; i < length; i++){
+            const node = queue.shift();
+            rightSide = node;
+            if(node.left !== null) queue.push(node.left);
+            if(node.right !== null) queue.push(node.right);
+        }
+        
+        if(rightSide) output.push(rightSide.val)
+    }
+    return output;
+};
