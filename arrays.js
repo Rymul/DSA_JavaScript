@@ -135,3 +135,30 @@ let nums2 = [2,5,6]
 let n = 3
 console.log(merge(nums1, m, nums2, n))
 console.log([1,2,2,3,5,6], "expected output")
+
+
+
+
+/**
+ * 26. Remove Duplicates from Sorted Array
+ */
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+ var removeDuplicates = function(nums) {
+    let i = 0;
+    while (i < nums.length) {
+        if(nums[i] === nums[i+1]){
+            nums.splice(i, 1);
+        } else {
+            i++
+        }
+    }
+    return nums.length
+};
+
+let nums = [1,1,2]
+console.log(removeDuplicates(nums))
+console.log(2, "expected output")
