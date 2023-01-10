@@ -132,3 +132,45 @@
   }
   return numOfOdds > 0 ? s.length - numOfOdds + 1 : s.length;
 };
+
+
+/**
+ * Uncompress
+ * Write a function, uncompress, that takes in a string as an argument. The input string will be formatted into multiple groups according to the following pattern:
+ * <number><char>
+ * The function should return an uncompressed version of the string where each 'char' of a group is repeated 'number' times consecutively. 
+ * You may assume that the input string is well-formed according to the previously mentioned pattern.
+ * 
+ * NOTE: strings are immutable in JS, concatinating results in a new string 0(n), need to use an array 
+ * 
+ * Time complexity: O(nm) where n is the number of number character pairs or groups and m is the largest number of any group
+ */
+
+const uncompress = (s) => {
+    let res = [];
+    const numbers = '0123456789';
+    let i = 0;
+    let j = 0;
+    while(j < s.length){
+      if(numbers.includes(s[j])){
+        j += 1;
+      } else {
+        const num = s.slice(i, j)
+        for(let count = 0; count < num; count++){
+          res.push(s[j]);
+        }
+        j += 1;
+        i = j;
+      }
+      
+    }
+      
+    return res.join('');
+};
+
+console.log(uncompress("2c3a1t"))
+console.log(uncompress("4s2b"))
+console.log(uncompress("2p1o5p"))
+console.log(uncompress("3n12e2z"))
+console.log(uncompress("127y"))
+
