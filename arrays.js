@@ -162,3 +162,30 @@ console.log([1,2,2,3,5,6], "expected output")
 let nums = [1,1,2]
 console.log(removeDuplicates(nums))
 console.log(2, "expected output")
+
+
+
+/**
+ * Max Value
+ * Write a function, maxValue, that takes in array of numbers as an argument. The function should return the largest number in the array.
+ * Solve this without using any built-in array methods.
+ * You can assume that the array is non-empty.
+ */
+
+const maxValue = (nums) => {
+    let max = nums[0]
+    for(let i = 1; i < nums.length; i++){
+      if(nums[i] > max){
+        max = nums[i]
+      }
+    }
+    return max
+  };
+  
+  module.exports = {
+    maxValue,
+};
+
+console.log(maxValue([4, 7, 2, 8, 10, 9])); // -> 10
+
+console.log(maxValue([10, 5, 40, 40.3])); // -> 40.3
