@@ -174,3 +174,44 @@ console.log(uncompress("2p1o5p"))
 console.log(uncompress("3n12e2z"))
 console.log(uncompress("127y"))
 
+
+/**
+ * Compress
+ * Write a function, compress, that takes in a string as an argument. 
+ * The function should return a compressed version of the string where consecutive occurrences of the same characters are compressed into the number of occurrences followed by the character.
+ * Single character occurrences should not be changed.
+ * 'aaa' compresses to '3a'
+ * You can assume that the input only contains alphabetic characters.
+ * 
+ * Time Complexity O(n)
+ */
+
+const compress = (s) => {
+  let res = [];
+  let i = 0;
+  let j = 0;
+  let count = 0;
+  
+  while(j <= s.length) {
+    if(s[j] === s[i]) {
+      j += 1
+    } else {
+      let num = j - i;
+      if(num === 1){
+        res.push(s[i]);
+      } else {
+        res.push(num, s[i]);
+      }
+      i = j;
+    }
+      
+  }
+  return res.join('');
+};
+
+
+console.log(compress('ccaaatsss'))
+console.log(compress('ssssbbz'))
+console.log(compress('ppoppppp'))
+console.log(compress('nnneeeeeeeeeeeezz'))
+console.log(compress('yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'))
