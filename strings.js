@@ -215,3 +215,33 @@ console.log(compress('ssssbbz'))
 console.log(compress('ppoppppp'))
 console.log(compress('nnneeeeeeeeeeeezz'))
 console.log(compress('yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'))
+
+
+
+
+/**
+ * 412. Fizz Buzz
+ */
+
+
+var fizzBuzz = function(n) {
+  let ans = []
+  for (let i = 1; i <= n; i++){
+      if ( i % 3 === 0 && i % 5 === 0){
+          ans[i] = "FizzBuzz"
+      } else if (i % 3 === 0){
+          ans[i] = "Fizz"
+      } else if (i % 5 === 0 ){
+          ans[i] = "Buzz"
+      } else {
+          ans[i] = `${i}`
+      }
+  }
+  ans.shift()
+  return ans;
+};
+
+console.log(fizzBuzz(3))
+console.log(fizzBuzz(5))
+console.log(fizzBuzz(21))
+console.log(fizzBuzz(4))
