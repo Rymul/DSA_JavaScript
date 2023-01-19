@@ -245,3 +245,44 @@ console.log(fizzBuzz(3))
 console.log(fizzBuzz(5))
 console.log(fizzBuzz(21))
 console.log(fizzBuzz(4))
+
+
+// Write a function `hipsterfy(sentence)` that takes takes a string
+// containing several words as input. Remove the last vowel from each word.
+// `‘y’` is not a vowel.
+
+
+// Examples:
+// hipsterfy(“proper”); // => “propr”
+// hipsterfy(“proper tonic panther”); // => “propr tonc panthr”
+// hipsterfy(“towel flicker banana”); // => “towl flickr banan”
+// hipsterfy(“runner anaconda”); // => “runnr anacond”
+// hipsterfy(“turtle cheeseburger fries”); // => “turtl cheeseburgr fris”
+
+
+const hipsterfy = (sentence) => {
+  let words = sentence.split(' ')
+  let newWords = []
+  for(let j = 0; j < words.length; j++){
+      newWords.push(helper(words[j]))
+  }
+  return newWords.join(' ')
+}
+
+
+const helper = (word) => {
+
+  let vowels = 'aeiou'
+  let i = word.length -1
+
+  while(i >= 0){
+      if(vowels.includes(word[i])){
+          return word.replace(word[i], '')
+      }
+      i--;
+  }
+}
+
+
+let s = 'proper tonic panther';
+console.log(hipsterfy(s))
