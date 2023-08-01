@@ -27,3 +27,13 @@ let m = 3
 let nums2 = [2,5,6]
 let n = 3
 console.log(merge(nums1, m, nums2, n))
+
+// 94. Binary Tree Inorder Traversal
+
+var inorderTraversal = function(root) {    
+    if(!root) return [];
+    let left = inorderTraversal(root.left);
+    left.push(root.val)
+    let right = inorderTraversal(root.right);
+    return left.concat(right);
+};
