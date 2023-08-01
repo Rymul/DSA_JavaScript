@@ -37,3 +37,19 @@ var inorderTraversal = function(root) {
     let right = inorderTraversal(root.right);
     return left.concat(right);
 };
+
+// 100. Same Tree
+
+var isSameTree = function(p, q) {
+    if(p === null && q === null){
+        return true
+    }
+    if(p===null || q===null){
+        return false
+    }
+    if(p.val !== q.val){
+        return false
+    }
+    return isSameTree(p.left, q.left) && isSameTree(p.right,q.right);
+};
+
