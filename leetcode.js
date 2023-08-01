@@ -53,3 +53,18 @@ var isSameTree = function(p, q) {
     return isSameTree(p.left, q.left) && isSameTree(p.right,q.right);
 };
 
+
+// 101. Symmetric Tree
+
+var isSymmetric = function(root) {
+    if(!root) return true;
+    return dfs(root.left, root.right);
+};
+
+const dfs = (left, right) => {
+    if(!left && !right) return true;
+    if(left && !right || !left && right || left.val !== right.val) {
+            return false;
+    }
+    return dfs(left.right, right.left) && dfs(left.left, right.right); 
+};
