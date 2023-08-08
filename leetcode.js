@@ -76,3 +76,15 @@ var maxDepth = function(root) {
     if(root === null) return 0;
     return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
 };
+
+
+// 112. Path Sum
+
+var hasPathSum = function(root, targetSum) {
+    if (!root) return false;
+
+    targetSum -= root.val;
+
+    if(!root.left && !root.right) return targetSum === 0;
+    return hasPathSum(root.left, targetSum) || hasPathSum(root.right, targetSum) 
+};
