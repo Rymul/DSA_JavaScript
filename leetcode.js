@@ -107,3 +107,16 @@ var generate = function(numRows) {
 };
 
 console.log(generate(5))
+
+// 136. Single Number
+
+var singleNumber = function(nums) {
+    let res;
+    
+    for (let i = 0; i < nums.length; i++){
+        res ^=nums[i]
+    }
+    return res
+};
+
+console.log(singleNumber([4,1,2,1,2]))
