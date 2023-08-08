@@ -88,3 +88,22 @@ var hasPathSum = function(root, targetSum) {
     if(!root.left && !root.right) return targetSum === 0;
     return hasPathSum(root.left, targetSum) || hasPathSum(root.right, targetSum) 
 };
+
+// 118. Pascal's Triangle
+
+var generate = function(numRows) {
+    let res = []
+    for (i = 0; i < numRows; i++) {
+        res.push(Array(i + 1))
+        for (j = 0; j <= i; j++){
+            if (j === 0 || j === i) {
+                res[i][j] = 1
+            } else {
+                res[i][j] = res[i - 1][j - 1] + res[ i - 1][j]
+            }
+        }
+    }
+    return res
+};
+
+console.log(generate(5))
