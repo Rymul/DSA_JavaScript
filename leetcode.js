@@ -14,6 +14,7 @@ var deleteDuplicates = function(head) {
     return head;
 };
 
+
 // 88. Merge Sorted Array
 
 var merge = function(nums1, m, nums2, n) {
@@ -28,6 +29,7 @@ let nums2 = [2,5,6]
 let n = 3
 console.log(merge(nums1, m, nums2, n))
 
+
 // 94. Binary Tree Inorder Traversal
 
 var inorderTraversal = function(root) {    
@@ -37,6 +39,7 @@ var inorderTraversal = function(root) {
     let right = inorderTraversal(root.right);
     return left.concat(right);
 };
+
 
 // 100. Same Tree
 
@@ -89,6 +92,7 @@ var hasPathSum = function(root, targetSum) {
     return hasPathSum(root.left, targetSum) || hasPathSum(root.right, targetSum) 
 };
 
+
 // 118. Pascal's Triangle
 
 var generate = function(numRows) {
@@ -108,6 +112,7 @@ var generate = function(numRows) {
 
 console.log(generate(5))
 
+
 // 136. Single Number
 
 var singleNumber = function(nums) {
@@ -120,6 +125,7 @@ var singleNumber = function(nums) {
 };
 
 console.log(singleNumber([4,1,2,1,2]))
+
 
 // 14. Longest Common Prefix
 
@@ -142,6 +148,7 @@ var longestCommonPrefix = function(strs) {
 
 
 console.log(longestCommonPrefix(["flower","flow","flight"]))
+
 
 // 20. Valid Parentheses
 
@@ -169,6 +176,7 @@ var isValid = function(s) {
 console.log(isValid("()[]{}"))
 console.log(isValid("(}"))
 
+
 // 21. Merge Two Sorted Lists
 
 var mergeTwoLists = function(list1, list2) {
@@ -188,6 +196,7 @@ var mergeTwoLists = function(list1, list2) {
     }
     return tempHead.next
 };
+
 
 // 26. Remove Duplicates from Sorted Array
 
@@ -219,3 +228,18 @@ var mySqrt = function(x) {
 
 console.log(mySqrt(36))
 console.log(mySqrt(37))
+
+
+// 70. Climbing Stairs
+
+var climbStairs = function(n) {
+    let arr = [0,1,2]
+    
+    for(let i = 3; i<=n; i++){
+        arr[i] = arr[i-1] + arr[i-2]
+    }
+    return arr[n]
+};
+
+console.log(climbStairs(3))
+console.log(climbStairs(5))
