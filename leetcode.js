@@ -243,3 +243,22 @@ var climbStairs = function(n) {
 
 console.log(climbStairs(3))
 console.log(climbStairs(5))
+
+
+// 108. Convert Sorted Array to Binary Search Tree
+
+var sortedArrayToBST = function(nums) {
+    if(nums.length === 1) return new TreeNode(nums[0]);
+    if(nums.length === 0) return null;
+    
+    let middleIdx = Math.floor(nums.length/2);
+    let root = new TreeNode(nums[middleIdx]);
+
+    let left = nums.slice(0, middleIdx);
+    root.left = sortedArrayToBST(left);
+    let right = nums.slice(middleIdx+1, nums.length);
+    root.right = sortedArrayToBST(right);
+
+    return root;
+};
+
