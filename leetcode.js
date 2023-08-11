@@ -204,3 +204,18 @@ var removeDuplicates = function(nums) {
 };
 
 console.log(removeDuplicates([0,0,1,1,1,2,2,3,3,4]))
+
+
+// 69. Sqrt(x)
+
+var mySqrt = function(x) {
+    let sqrt = 0
+    
+    for(let i = 1; i * i <= x; i++){
+        sqrt = i
+    }
+    return sqrt
+};
+
+console.log(mySqrt(36))
+console.log(mySqrt(37))
