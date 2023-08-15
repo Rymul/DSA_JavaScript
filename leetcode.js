@@ -262,3 +262,19 @@ var sortedArrayToBST = function(nums) {
     return root;
 };
 
+
+// 58. Length of Last Word
+
+var lengthOfLastWord = function(s) {
+    let words = s.split(" ");
+    let i = words.length - 1
+    while (i >= 1){
+        if (words[i] !== ""){
+            break;
+        } 
+        i--
+    }
+    return words[i].length
+};
+
+console.log(lengthOfLastWord('Hello World'))
