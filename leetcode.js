@@ -278,3 +278,18 @@ var lengthOfLastWord = function(s) {
 };
 
 console.log(lengthOfLastWord('Hello World'))
+
+
+// 141. Linked List Cycle
+
+var hasCycle = function(head) {
+    if(head === null || head.next === null) return false;
+    let [slow, fast] = [head, head];
+
+    while (fast !== null && fast.next !== null) {
+        slow = slow.next;
+        fast = fast.next.next;
+        if(slow === fast) return true;
+    }
+    return false;
+};
