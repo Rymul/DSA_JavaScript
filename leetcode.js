@@ -316,3 +316,21 @@ var isIsomorphic = function(s, t) {
 }
 
 console.log(isIsomorphic('egg', 'add'))
+
+
+// 206. Reverse Linked List
+
+var reverseList = function(head) {
+    
+    if(head === null) return head;
+    let node = head
+    let prev = null
+    
+    while (node) {
+        let temp = node.next
+        node.next = prev
+        prev = node
+        node = temp
+    }
+    return prev
+};
