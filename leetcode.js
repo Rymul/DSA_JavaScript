@@ -334,3 +334,21 @@ var reverseList = function(head) {
     }
     return prev
 };
+
+
+// 219. Contains Duplicate II
+
+var containsNearbyDuplicate = function(nums, k) {
+    let count = {};
+    
+    for (let i = 0; i < nums.length; i++) {
+        if (i - count[nums[i]] <= k) {
+            return true;
+        } else {
+            count[nums[i]] = i;
+        }
+    }
+    return false;
+};
+
+console.log(containsNearbyDuplicate([1,2,3,1], 3))
