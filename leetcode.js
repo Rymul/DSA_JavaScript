@@ -352,3 +352,15 @@ var containsNearbyDuplicate = function(nums, k) {
 };
 
 console.log(containsNearbyDuplicate([1,2,3,1], 3))
+
+
+// 226. Invert Binary Tree
+
+var invertTree = function(root) {
+    if(!root) return null;
+    const left = invertTree(root.left);
+    const right = invertTree(root.right);
+    root.left = right;
+    root.right = left;
+    return root;
+};
