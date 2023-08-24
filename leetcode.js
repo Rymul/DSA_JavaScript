@@ -569,3 +569,19 @@ var licenseKeyFormatting = function(s, k) {
 
 console.log(licenseKeyFormatting("5F3Z-2e-9-w", 4))
 console.log(licenseKeyFormatting("2-5g-3-J", 2))
+
+
+// 485. Max Consecutive Ones
+
+var findMaxConsecutiveOnes = function(nums) {
+    let max = 0;
+    let current = 0;
+
+    for (let i = 0; i < nums.length; i++) {
+        current = (nums[i] === 0) ? 0 : current + 1
+        max = (current > max) ? current : max
+    }
+    return max
+};
+
+console.log(findMaxConsecutiveOnes([1,1,1,0,1,1,1,1,0,1,1]))
