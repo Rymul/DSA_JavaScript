@@ -585,3 +585,15 @@ var findMaxConsecutiveOnes = function(nums) {
 };
 
 console.log(findMaxConsecutiveOnes([1,1,1,0,1,1,1,1,0,1,1]))
+
+
+// 492. Construct the Rectangle
+
+var constructRectangle = function(area) {
+    let w = parseInt(Math.sqrt(area))
+    while(!Number.isInteger(area/w)) w--
+    return [area/w, w]
+};
+
+console.log(constructRectangle(4))
+console.log(constructRectangle(83))
