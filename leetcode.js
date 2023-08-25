@@ -597,3 +597,20 @@ var constructRectangle = function(area) {
 
 console.log(constructRectangle(4))
 console.log(constructRectangle(83))
+
+
+// 496. Next Greater Element I
+
+var nextGreaterElement = function(nums1, nums2) {
+    const map = new Map();
+    const stack = [];
+    for (let num of nums2) {
+        while (stack.length && stack[stack.length - 1] < num) {
+            map[stack.pop()] = num;
+        }
+        stack.push(num)
+    }
+    return nums1.map(num => map[num] || -1)
+};
+
+console.log(nextGreaterElement([4,1,2], [1,3,4,2]))
