@@ -614,3 +614,29 @@ var nextGreaterElement = function(nums1, nums2) {
 };
 
 console.log(nextGreaterElement([4,1,2], [1,3,4,2]))
+
+
+// 500. Keyboard Row
+
+var findWords = function(words) {
+    const row1 = new Set('qwertyuiop');
+    const row2 = new Set('asdfghjkl');
+    const row3 = new Set('zxcvbnm');
+    const res = [];
+
+    for (let word of words) {
+        if (canType(word, row1) || canType(word, row2) || canType(word, row3)) res.push(word);
+    }
+    
+    return res;
+
+    function canType(word, row) {
+        for (let char of word) {
+            if (!row.has(char.toLowerCase())) return false;
+        }
+        return true
+    }    
+};
+
+console.log(findWords(["Hello","Alaska","Dad","Peace"]))
+
