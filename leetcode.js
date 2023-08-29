@@ -662,7 +662,6 @@ return sum;
 };
 
 
-
 // 222. Count Complete Tree Nodes
 
 var countNodes = function(root) {
@@ -671,3 +670,16 @@ var countNodes = function(root) {
 };
 
 
+// 231. Power of Two
+
+var isPowerOfTwo = function(n) {
+    if (n == 0) return false;
+    while (n != 1) {
+        if (n%2 != 0) return false;
+        n = n/2;
+    }
+    return true
+};
+
+console.log(isPowerOfTwo(16))
+console.log(isPowerOfTwo(3))
