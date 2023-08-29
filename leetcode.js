@@ -660,3 +660,14 @@ for(let i = 0; i < sum.length; i++){
 }
 return sum;
 };
+
+
+
+// 222. Count Complete Tree Nodes
+
+var countNodes = function(root) {
+    if (root == null) return 0;
+    return countNodes(root.left) + countNodes(root.right) + 1;
+};
+
+
