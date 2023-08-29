@@ -683,3 +683,18 @@ var isPowerOfTwo = function(n) {
 
 console.log(isPowerOfTwo(16))
 console.log(isPowerOfTwo(3))
+
+
+// 234. Palindrome Linked List
+
+var isPalindrome = function(head) {
+    let s1 = s2 = '';
+    let node = head;
+    while (node != null) {
+        s1 = `${s1}${node.val}`;
+        s2 = `${node.val}${s2}`;
+        node = node.next;
+    }
+    return s1 === s2;
+};
+
