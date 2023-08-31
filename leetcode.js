@@ -706,3 +706,14 @@ var sumOfLeftLeaves = function(root, isLeft) {
     if (!root.left && !root.right && isLeft) return root.val
     return sumOfLeftLeaves(root.left, true) + sumOfLeftLeaves(root.right, false)
 };
+
+
+// 414. Third Maximum Number
+
+var thirdMax = function(nums) {
+    nums = [...new Set(nums)].sort((a,b) => b-a);
+    return (nums.length <= 2)? nums[0] : nums[2];
+};
+
+console.log(thirdMax([1,2]))
+console.log(thirdMax([2,2,3,1]))
