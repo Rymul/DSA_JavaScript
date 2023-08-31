@@ -698,3 +698,11 @@ var isPalindrome = function(head) {
     return s1 === s2;
 };
 
+
+// 404. Sum of Left Leaves
+
+var sumOfLeftLeaves = function(root, isLeft) {
+    if (!root) return 0
+    if (!root.left && !root.right && isLeft) return root.val
+    return sumOfLeftLeaves(root.left, true) + sumOfLeftLeaves(root.right, false)
+};
