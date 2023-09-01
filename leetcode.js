@@ -717,3 +717,29 @@ var thirdMax = function(nums) {
 
 console.log(thirdMax([1,2]))
 console.log(thirdMax([2,2,3,1]))
+
+
+// 5. Longest Palindromic Substring
+
+var longestPalindrome = function(s) {
+    let longest = '';
+    const findLongestPalindrome = (str, i, j) => {
+        while (i >= 0 && j < str.length && str[i] === str[j]) {
+            i -= 1;
+            j += 1;
+        }
+        return str.slice(i + 1, j);
+    }
+    for (let i = 0; i < s.length; i++) {
+        const cur1 = findLongestPalindrome(s, i, i);
+        const cur2 = findLongestPalindrome(s, i, i + 1);
+        const longer = cur1.length > cur2.length ? cur1 : cur2;
+        if (longer.length > longest.length) {
+            longest = longer;
+        }
+    }
+    return longest;
+};
+
+console.log(longestPalindrome('babad'))
+console.log(longestPalindrome('cbbd'))
