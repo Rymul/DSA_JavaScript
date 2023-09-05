@@ -767,7 +767,6 @@ console.log(maxProfit([7,1,5,3,6,4]))
 console.log(maxProfit([7,6,4,3,1]))
 
 
-
 // 217. Contains Duplicate
 
 var containsDuplicate = function(nums) {
@@ -777,3 +776,22 @@ var containsDuplicate = function(nums) {
 
 console.log(containsDuplicate([1,2,3,4,1]))
 console.log(containsDuplicate([1,2,3,4,5]))
+
+
+// 242. Valid Anagram
+
+var isAnagram = function(s, t) {
+    if (t.length !== s.length) return false;
+    const counter = []
+    for (let c of s) {
+        counter[c] = counter[c] ? counter[c] + 1 : 1
+    }
+    for (let c of t) {
+        if (!counter[c]) return false;
+        counter[c] --;
+    }
+    return true
+};
+
+console.log(isAnagram("anagram", "nagaram"))
+console.log(isAnagram("dog", "cat"))
