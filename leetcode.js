@@ -765,3 +765,15 @@ var maxProfit = function(prices) {
 
 console.log(maxProfit([7,1,5,3,6,4]))
 console.log(maxProfit([7,6,4,3,1]))
+
+
+
+// 217. Contains Duplicate
+
+var containsDuplicate = function(nums) {
+    const set = new Set(nums);
+    return set.size !== nums.length
+};
+
+console.log(containsDuplicate([1,2,3,4,1]))
+console.log(containsDuplicate([1,2,3,4,5]))
