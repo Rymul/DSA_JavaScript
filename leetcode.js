@@ -811,3 +811,28 @@ var canPlaceFlowers = function(flowerbed, n) {
 
 console.log(canPlaceFlowers([1,0,0,0,1], 1))
 console.log(canPlaceFlowers([1,0,0,0,1], 2))
+
+
+// 824. Goat Latin
+
+var toGoatLatin = function(sentence) {
+    const vowels = 'aeiouAEIOU'
+    const arr = sentence.split(' ')
+    for (let i = 0; i < arr.length; i ++) {
+        let word = arr[i];
+        const first = word[0];
+        if (!vowels.includes(first)) {
+            word = word.slice(1) + first
+        }
+        word += 'ma'
+        for (let j = -1; j < i; j++) {
+            word += 'a'
+        }
+        arr[i] = word
+    }
+    return arr.join(' ')
+};
+
+console.log(toGoatLatin('I speak Goat Latin'))
+console.log(toGoatLatin('The quick brown fox jumped over the lazy dog'))
+
