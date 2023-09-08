@@ -883,3 +883,17 @@ var transpose = function(matrix) {
 
 console.log(transpose([[1,2,3],[4,5,6],[7,8,9]]))
 console.log(transpose([[1,4],[2,5],[3,6]]))
+
+
+// 876. Middle of the Linked List
+
+var middleNode = function(head) {
+    let fast = head;
+    let slow = head;
+    
+    while(fast && fast.next) {
+        fast = fast.next.next;
+        slow = slow.next;
+    }
+    return slow;
+};
