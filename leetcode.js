@@ -836,3 +836,32 @@ var toGoatLatin = function(sentence) {
 console.log(toGoatLatin('I speak Goat Latin'))
 console.log(toGoatLatin('The quick brown fox jumped over the lazy dog'))
 
+
+// 860. Lemonade Change
+
+var lemonadeChange = function(bills) {
+    let five = 0, ten = 0;
+    for (let bill of bills) {
+        if (bill === 5) five++;
+        else if (bill === 10) {
+            ten++;
+            if (five === 0) return false;
+            else five--;
+        } else {
+            let change = 15;
+            if (ten > 0) {
+                ten--;
+                change -= 10;
+            }
+            while (change > 0) {
+                five--;
+                if (five < 0) return false;
+                change -= 5
+            }
+        }
+    }
+    return true
+};
+
+console.log(lemonadeChange([5,5,5,10,20]))
+console.log(lemonadeChange([5,5,10,10,20]))
