@@ -897,3 +897,23 @@ var middleNode = function(head) {
     }
     return slow;
 };
+
+
+// 892. Surface Area of 3D Shapes
+
+var surfaceArea = function(grid) {
+    const height = grid.length;
+    const width = grid[0].length;
+    let sum = 0;
+    for (let i = 0; i < height; i++) {
+        for (let j = 0; j < width; j++) {
+            if (grid[i][j] > 0) sum += grid[i][j] * 4 + 2;
+            if (i > 0) sum -= 2 * Math.min(grid[i - 1][j], grid[i][j]);
+            if (j > 0) sum -= 2 * Math.min(grid[i][j - 1], grid[i][j]);
+        }
+    }
+    return sum;
+};
+
+console.log(surfaceArea([[1,2],[3,4]]))
+console.log(surfaceArea([[1,1,1],[1,0,1],[1,1,1]]))
