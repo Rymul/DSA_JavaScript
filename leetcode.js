@@ -981,3 +981,23 @@ var summaryRanges = function(nums) {
 
 console.log(summaryRanges([0,1,2,4,5,7]))
 console.log(summaryRanges([0,2,3,4,6,8,9]))
+
+
+// 257. Binary Tree Paths
+
+var binaryTreePaths = function(root) {
+    let res = [];
+
+    const dfs = (root, cur) => {
+        if (!root) return;
+        if (!root.left && !root.right) {
+            res.push(cur + root.val);
+            return;
+        }
+        dfs(root.left, cur + root.val + '->');
+        dfs(root.right, cur + root.val + '->');
+    }
+    dfs(root, '')
+    return res;
+};
+
