@@ -957,3 +957,27 @@ var removeElements = function(head, val) {
     return head;
 };
 
+
+// 228. Summary Ranges
+
+var summaryRanges = function(nums) {
+    const res = [];
+    let i = 0;
+    while (i < nums.length) {
+        let beg = nums[i];
+        let last;
+        while (i + 1 < nums.length && nums[i + 1] === nums[i] + 1) i++
+        last = nums[i];
+        if (beg === last) {
+            res.push(beg + '');
+        } else {
+            res.push(beg + '->' + last);
+        }
+        i++
+
+    }
+    return res;
+};
+
+console.log(summaryRanges([0,1,2,4,5,7]))
+console.log(summaryRanges([0,2,3,4,6,8,9]))
