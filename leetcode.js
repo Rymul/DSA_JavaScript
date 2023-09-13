@@ -933,3 +933,27 @@ var findPoisonedDuration = function(timeSeries, duration) {
 
 console.log(findPoisonedDuration([1,4], 2))
 console.log(findPoisonedDuration([1,2], 2))
+
+
+// 203. Remove Linked List Elements
+
+var removeElements = function(head, val) {
+    if (!head) return head;
+    while (head) {
+        if (head.val === val) {
+            head = head.next;
+        } else {
+            break;
+        }
+    }
+    let cur = head;
+    while (cur && cur.next) {
+        if (cur.next.val === val) {
+            cur.next = cur.next.next;
+        } else {
+            cur = cur.next
+        }
+    }
+    return head;
+};
+
