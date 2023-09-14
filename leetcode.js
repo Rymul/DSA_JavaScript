@@ -1001,3 +1001,19 @@ var binaryTreePaths = function(root) {
     return res;
 };
 
+
+// 258. Add Digits
+
+var addDigits = function(num) {
+    let res = Infinity;
+    if (num === 0) return 0;
+    while (true) {
+        if (res < 10) return res;
+        digit = (num % 10) + Math.floor(num / 10);
+        res = digit;
+        num = digit
+    }
+};
+
+console.log(addDigits(38))
+console.log(addDigits(0))
