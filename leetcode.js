@@ -1017,3 +1017,21 @@ var addDigits = function(num) {
 
 console.log(addDigits(38))
 console.log(addDigits(0))
+
+
+// 1051. Height Checker
+
+var heightChecker = function(heights) {
+    let unExpected = 0
+    let sorted = [...heights]
+    sorted.sort((a,b) => a - b);
+    for (let i = 0; i < heights.length; i++) {
+        if (heights[i] != sorted[i]) {
+            unExpected += 1;
+        }
+    }
+    return unExpected;
+};
+
+console.log(heightChecker([1,1,4,2,1,3]))
+console.log(heightChecker([1,2,3,4,5]))
