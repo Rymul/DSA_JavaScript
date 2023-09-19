@@ -1052,3 +1052,18 @@ var duplicateZeros = function(arr) {
 
 console.log(duplicateZeros([1,0,2,3,0,4,5,0]))
 console.log(duplicateZeros([1,2,3]))
+
+
+// 1122. Relative Sort Array
+
+var relativeSortArray = function(arr1, arr2) {
+    res = [];
+    for (let i = 0; i < arr2.length; i++) {
+        res = res.concat(arr1.filter((j) => j === arr2[i]));
+        arr1 = arr1.filter((j) => j !== arr2[i]);
+    }
+    return res.concat(arr1.sort((a,b) => a - b));
+};
+
+console.log(relativeSortArray([2,3,1,3,2,4,6,7,9,2,19], [2,1,4,3,9,6]))
+console.log(relativeSortArray([28,6,22,8,44,17], [22,28,8,6]))
