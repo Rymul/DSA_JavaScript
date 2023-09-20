@@ -1067,3 +1067,22 @@ var relativeSortArray = function(arr1, arr2) {
 
 console.log(relativeSortArray([2,3,1,3,2,4,6,7,9,2,19], [2,1,4,3,9,6]))
 console.log(relativeSortArray([28,6,22,8,44,17], [22,28,8,6]))
+
+
+// 1002. Find Common Characters
+
+var commonChars = function(words) {
+    const res = [];
+    const word = [...words[0]];
+
+    for (let letter of word) {
+        if (words.every(word => word.includes(letter))) {
+            res.push(letter);
+            words = words.map(word => word.replace(letter, ''))
+        }
+    }
+    return res
+};
+
+console.log(commonChars(["bella","label","roller"]))
+console.log(commonChars(["cool","lock","cook"]))
