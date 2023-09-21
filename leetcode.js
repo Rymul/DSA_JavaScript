@@ -1132,3 +1132,21 @@ var findSecondMinimumValue = function(root) {
     return min2 === Infinity ? -1 : min2;
 };
 
+
+// 674. Longest Continuous Increasing Subsequence
+
+var findLengthOfLCIS = function(nums) {
+    if (nums.length < 2) return nums.length;
+    let left = 0;
+    let right = 0;
+    let maxLength = 0;
+    while (right < nums.length) {
+        if (nums[right - 1] >= nums[right]) left = right;
+        right++;
+        maxLength = Math.max(right - left, maxLength);
+    }
+    return maxLength;
+};
+
+console.log(findLengthOfLCIS([1,3,5,4,7]))
+console.log(findLengthOfLCIS([3,3,3,3,3,3]))
