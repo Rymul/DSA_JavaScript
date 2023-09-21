@@ -1115,3 +1115,20 @@ var judgeCircle = function(moves) {
 console.log(judgeCircle('UD'))
 console.log(judgeCircle('RR'))
 
+
+// 671. Second Minimum Node In a Binary Tree
+
+var findSecondMinimumValue = function(root) {
+    if (!root) return -1;
+    const min1 = root.val;
+    let min2 = Infinity;
+    const stack = [root];
+    while (stack.length) {
+        const node = stack.pop();
+        if (min1 < node.val && node.val < min2) min2 = node.val;
+        if (node.left) stack.push(node.left);
+        if (node.right) stack.push(node.right);
+    }
+    return min2 === Infinity ? -1 : min2;
+};
+
