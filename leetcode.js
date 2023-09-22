@@ -1167,3 +1167,25 @@ var minCostClimbingStairs = function(cost) {
 
 console.log(minCostClimbingStairs([10, 15, 20]))
 console.log(minCostClimbingStairs([1, 100, 1, 1, 1, 100, 1, 1, 100, 1]))
+
+
+// 747. Largest Number At Least Twice of Others
+
+var dominantIndex = function(nums) {
+    let first = -Infinity;
+    let second = -Infinity;
+    let res = 0;
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] > first) {
+            second = first;
+            first = nums[i];
+            res = i;
+        } else if (nums[i] > second) {
+            second = nums[i];
+        }
+    }
+    return first >= second * 2 ? res : -1;
+};
+
+console.log(dominantIndex([3,6,1,0]))
+console.log(dominantIndex([1,2,3,4]))
