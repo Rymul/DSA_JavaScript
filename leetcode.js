@@ -1150,3 +1150,20 @@ var findLengthOfLCIS = function(nums) {
 
 console.log(findLengthOfLCIS([1,3,5,4,7]))
 console.log(findLengthOfLCIS([3,3,3,3,3,3]))
+
+
+// 746. Min Cost Climbing Stairs
+
+var minCostClimbingStairs = function(cost) {
+    let first = cost[0];
+    let second = cost[1];
+    for (let i = 2; i < cost.length; i++) {
+        let current = cost[i] + Math.min(first, second);
+        first = second;
+        second = current;
+    }
+    return Math.min(first, second);
+};
+
+console.log(minCostClimbingStairs([10, 15, 20]))
+console.log(minCostClimbingStairs([1, 100, 1, 1, 1, 100, 1, 1, 100, 1]))
