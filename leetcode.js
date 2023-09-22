@@ -1189,3 +1189,23 @@ var dominantIndex = function(nums) {
 
 console.log(dominantIndex([3,6,1,0]))
 console.log(dominantIndex([1,2,3,4]))
+
+
+// 771. Jewels and Stones
+
+var numJewelsInStones = function(jewels, stones) {
+    let obj = {};
+    let count = 0;
+    for (let i = 0; i < jewels.length; i++) {
+        obj[jewels[i]] = true;
+    }
+    for (let j = 0; j < stones.length; j++) {
+        if (obj[stones[j]]) {
+            count++;
+        }
+    }
+    return count;
+};
+
+console.log(numJewelsInStones('aA', 'aAAbbbb'))
+console.log(numJewelsInStones('z', 'ZZ'))
