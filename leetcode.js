@@ -1209,3 +1209,31 @@ var numJewelsInStones = function(jewels, stones) {
 
 console.log(numJewelsInStones('aA', 'aAAbbbb'))
 console.log(numJewelsInStones('z', 'ZZ'))
+
+
+// 680. Valid Palindrome II
+
+var validPalindrome = function(s) {
+    let low = 0;
+    let high = s.length - 1;
+    while (low < high) {
+        if (s[low] !== s[high]) {
+            return validPalindromeHelper(s, low + 1, high) || validPalindromeHelper(s, low, high - 1)
+        }
+        low++;
+        high--;
+    }
+    return true
+};
+
+const validPalindromeHelper = (s, low, high) => {
+    while (low < high) {
+        if (s[low] !== s[high]) return false;
+        low++;
+        high--;
+    }
+    return true
+}
+
+console.log(validPalindrome('abca'))
+console.log(validPalindrome('abc'))
