@@ -1251,3 +1251,20 @@ const isSame = (root1, root2) => {
     if (root1.val !== root2.val) return false;
     return isSame(root1.left, root2.left) && isSame(root1.right, root2.right);
 }
+
+
+// 563. Binary Tree Tilt
+
+var findTilt = function(root) {
+    const tilt = { val : 0 };
+    depthFirstSearch(root, tilt);
+    return tilt.val
+};
+
+const depthFirstSearch = (root, tilt) => {
+    if (!root) return 0;
+    let left = depthFirstSearch(root.left, tilt);
+    let right = depthFirstSearch(root.right, tilt);
+    tilt.val += Math.abs(left - right);
+    return root.val + left + right;
+}
