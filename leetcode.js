@@ -1268,3 +1268,17 @@ const depthFirstSearch = (root, tilt) => {
     tilt.val += Math.abs(left - right);
     return root.val + left + right;
 }
+
+
+// 521. Longest Uncommon Subsequence I
+
+var findLUSlength = function(a, b) {
+    if (a === b) {
+        return -1;
+    } else {
+        return Math.max(a.length, b.length)
+    }
+};
+
+console.log(findLUSlength('aba', 'cdc'))
+console.log(findLUSlength('aba', 'aba'))
