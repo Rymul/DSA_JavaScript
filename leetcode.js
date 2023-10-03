@@ -1282,3 +1282,33 @@ var findLUSlength = function(a, b) {
 
 console.log(findLUSlength('aba', 'cdc'))
 console.log(findLUSlength('aba', 'aba'))
+
+
+// 501. Find Mode in Binary Search Tree
+
+var findMode = function(root) {
+    const res = [];
+    if (!root) return res;
+    const obj = {};
+    const queue = [root];
+    let mode = 0;
+
+    while (queue.length) {
+        const cur = queue.shift();
+        if (obj[cur.val]) {
+            obj[cur.val] += 1;
+        } else {
+            obj[cur.val] = 1;
+        }
+        if (obj[cur.val] > mode) mode = obj[cur.val];
+        if (cur.left) queue.push(cur.left);
+        if (cur.right) queue.push(cur.right);
+    }
+
+    for (let num in obj) {
+        if (obj[num] === mode) res.push(num);
+    }    
+
+    return res;
+};
+
