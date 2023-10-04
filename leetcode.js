@@ -1312,3 +1312,15 @@ var findMode = function(root) {
     return res;
 };
 
+
+// 589. N-ary Tree Preorder Traversal
+
+var preorder = function(root, res = []) {
+    if (!root) return res;
+    res.push(root.val);
+    for (let child of root.children) {
+        preorder(child, res);
+    }
+    return res
+};
+
