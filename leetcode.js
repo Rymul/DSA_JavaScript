@@ -1324,3 +1324,15 @@ var preorder = function(root, res = []) {
     return res
 };
 
+
+
+// 590. N-ary Tree Postorder Traversal
+
+var postorder = function(root, res = []) {
+    if (!root) return res;
+    for (let child of root.children) {
+        postorder(child, res);
+    }
+    res.push(root.val);
+    return res;
+};
