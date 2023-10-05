@@ -1336,3 +1336,27 @@ var postorder = function(root, res = []) {
     res.push(root.val);
     return res;
 };
+
+
+
+// 541. Reverse String II
+
+var reverseStr = function(s, k) {
+    const arr = s.split('')
+    const k2 = k * 2
+    for (let i = 0; i < arr.length -1; i += k2) {
+        move(i, Math.min(i + k - 1, arr.length - 1));
+    }
+    return arr.join('');
+    
+    function move(start, end) {
+        while(start < end) {
+            [arr[start], arr[end]] = [arr[end], arr[start]];
+            start++;
+            end--;
+        }
+    }
+};
+
+console.log(reverseStr('abcdefg', 2))
+console.log(reverseStr('abcd', 2))
