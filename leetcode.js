@@ -1371,3 +1371,20 @@ var distributeCandies = function(candyType) {
 console.log(distributeCandies([1,1,2,2,3,3]))
 console.log(distributeCandies([5,5,5,5]))
 
+
+// 594. Longest Harmonious Subsequence
+
+var findLHS = function(nums) {
+    let map = {};
+    let maxLength = 0;
+
+    for (let i = 0; i < nums.length; i++) {
+        map[nums[i]] ? map[nums[i]]++ : map[nums[i]] = 1;
+        if (map[nums[i] - 1]) maxLength = Math.max(maxLength, map[nums[i]] + map[nums[i] - 1]);
+        if (map[nums[i] + 1]) maxLength = Math.max(maxLength, map[nums[i]] + map[nums[i] + 1]);
+    }
+    return maxLength;
+};
+
+console.log(findLHS([1,3,2,2,5,2,3,7]))
+console.log(findLHS([1,1,1,1]))
