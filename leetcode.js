@@ -1417,3 +1417,27 @@ var findRestaurant = function(list1, list2) {
 
 console.log(findRestaurant(["Shogun","Tapioca Express","Burger King","KFC"], ["Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"]))
 console.log(findRestaurant(["happy","sad","good"], ["sad","happy","good"]))
+
+
+// 728. Self Dividing Numbers
+
+var selfDividingNumbers = function(left, right) {
+    res = [];
+    const selfDividing = (num) => {
+        const s = num.toString();
+        for (let i = 0; i < s.length; i++) {
+            if (s[i] === '0' || num % parseInt(s[i])) return false;
+        }
+        return true;
+    }
+
+    for (i = left; i <= right; i++) {
+        if (selfDividing(i)) {
+            res.push(i)
+        }
+    }
+    return res;
+};
+
+console.log(selfDividingNumbers(1, 22))
+console.log(selfDividingNumbers(47, 85))
