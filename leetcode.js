@@ -1360,3 +1360,14 @@ var reverseStr = function(s, k) {
 
 console.log(reverseStr('abcdefg', 2))
 console.log(reverseStr('abcd', 2))
+
+
+// 575. Distribute Candies
+
+var distributeCandies = function(candyType) {
+    return Math.min(candyType.length / 2, new Set(candyType).size);
+};
+
+console.log(distributeCandies([1,1,2,2,3,3]))
+console.log(distributeCandies([5,5,5,5]))
+
