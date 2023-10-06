@@ -1388,3 +1388,32 @@ var findLHS = function(nums) {
 
 console.log(findLHS([1,3,2,2,5,2,3,7]))
 console.log(findLHS([1,1,1,1]))
+
+
+// 599. Minimum Index Sum of Two Lists
+
+var findRestaurant = function(list1, list2) {
+    let res = [];
+    let map = new Map();
+    for (let i = 0; i < list2.length; i++) {
+        map.set(list2[i], i)
+    }
+    let i = 0;
+    let min = Infinity;
+    while (i < list1.length) {
+        if (map.has(list1[i])) {
+            let sum = i + map.get(list1[i]);
+            if (min === sum) {
+                res.push(list1[i]);
+            } else if (sum < min) {
+                res = [list1[i]];
+                min = sum;
+            }
+        }
+        i++;
+    }
+    return res;
+};
+
+console.log(findRestaurant(["Shogun","Tapioca Express","Burger King","KFC"], ["Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"]))
+console.log(findRestaurant(["happy","sad","good"], ["sad","happy","good"]))
