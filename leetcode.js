@@ -1441,3 +1441,22 @@ var selfDividingNumbers = function(left, right) {
 
 console.log(selfDividingNumbers(1, 22))
 console.log(selfDividingNumbers(47, 85))
+
+
+
+// 598. Range Addition II
+
+var maxCount = function(m, n, ops) {
+    let minRow = m;
+    let minCol = n;
+
+    for (let op of ops) {
+        minRow = Math.min(minRow, op[0]);
+        minCol = Math.min(minCol, op[1]);
+    }
+    return minRow * minCol;
+};
+
+console.log(maxCount(3, 3, [[2,2],[3,3]]))
+console.log(maxCount(3, 3, [[2,2],[3,3],[3,3],[3,3],[2,2],[3,3],[3,3],[3,3],[2,2],[3,3],[3,3],[3,3]]))
+
