@@ -1460,3 +1460,14 @@ var maxCount = function(m, n, ops) {
 console.log(maxCount(3, 3, [[2,2],[3,3]]))
 console.log(maxCount(3, 3, [[2,2],[3,3],[3,3],[3,3],[2,2],[3,3],[3,3],[3,3],[2,2],[3,3],[3,3],[3,3]]))
 
+
+// 796. Rotate String
+
+var rotateString = function(s, goal) {
+    if (s.length !== goal.length) return false;
+    return s.concat(s).includes(goal);
+};
+
+console.log(rotateString("abcde", "cdeab"))
+console.log(rotateString("abcde", "abced"))
+
