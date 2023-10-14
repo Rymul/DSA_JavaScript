@@ -1490,3 +1490,14 @@ var findMaxAverage = function(nums, k) {
 console.log(findMaxAverage([1,12,-5,-6,50,3], 4))
 console.log(findMaxAverage([5], 1))
 
+
+// 1071. Greatest Common Divisor of Strings
+
+var gcdOfStrings = function(str1, str2) {
+    if (str1 + str2 !== str2 + str1) return '';
+    const divisor = (a,b) => (0 === b ? a : divisor(b, a % b));
+    return str1.substring(0, divisor(str1.length, str2.length)); 
+};
+
+console.log(gcdOfStrings("ABCABC", "ABC"))
+console.log(gcdOfStrings("LEET", "CODE"))
