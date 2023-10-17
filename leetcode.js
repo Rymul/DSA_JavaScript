@@ -1501,3 +1501,20 @@ var gcdOfStrings = function(str1, str2) {
 
 console.log(gcdOfStrings("ABCABC", "ABC"))
 console.log(gcdOfStrings("LEET", "CODE"))
+
+
+// 1137. N-th Tribonacci Number
+
+var tribonacci = function(n) {
+    if (memo[n] !== undefined) return memo[n];
+    return memo[n] = tribonacci(n - 1) + tribonacci(n - 2) + tribonacci(n - 3);   
+};
+
+const memo = {
+    0: 0,
+    1: 1,
+    2: 1
+};
+
+console.log(tribonacci(4))
+console.log(tribonacci(25))
