@@ -1541,3 +1541,24 @@ var isUgly = function(n) {
 console.log(isUgly(6))
 console.log(isUgly(1))
 console.log(isUgly(14))
+
+
+// 506. Relative Ranks
+
+var findRelativeRanks = function(score) {
+    let rank = score.slice(0).sort((a,b) => b - a);
+    return score.map((score, i) => {
+        if (score === rank[0]) {
+            return 'Gold Medal';
+        } else if (score === rank[1]) {
+            return 'Silver Medal';
+        } else if (score === rank[2]) {
+            return 'Bronze Medal';
+        } else {
+            return (rank.indexOf(score) + 1).toString();
+        }
+    })
+};
+
+console.log(findRelativeRanks([5,4,3,2,1]))
+console.log(findRelativeRanks([10,3,8,9,4]))
