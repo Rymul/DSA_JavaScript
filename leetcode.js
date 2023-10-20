@@ -1562,3 +1562,37 @@ var findRelativeRanks = function(score) {
 
 console.log(findRelativeRanks([5,4,3,2,1]))
 console.log(findRelativeRanks([10,3,8,9,4]))
+
+
+// 682. Baseball Game
+
+var calPoints = function(operations) {
+    const stack = [];
+    for (let i = 0; i < operations.length; i++) {
+        switch (operations[i]) {
+            case '+': {
+                const first = stack[stack.length - 2];
+                const second = stack[stack.length - 1];
+                stack.push(first + second);
+                break;
+            }
+            case 'D': {
+                const prev = stack[stack.length - 1];
+                stack.push(prev * 2);
+                break;
+            }
+            case 'C': {
+                stack.pop();
+                break;
+            }
+            default: {
+                stack.push(Number(operations[i]));
+                break;
+            }
+        }
+    }
+    return stack.reduce((prev, cur) => prev + cur, 0);
+};
+
+console.log(calPoints(["5","2","C","D","+"]))
+console.log(calPoints(["5","-2","4","C","D","9","+","+"]))
