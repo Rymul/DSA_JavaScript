@@ -1596,3 +1596,23 @@ var calPoints = function(operations) {
 
 console.log(calPoints(["5","2","C","D","+"]))
 console.log(calPoints(["5","-2","4","C","D","9","+","+"]))
+
+
+// 830. Positions of Large Groups
+
+var largeGroupPositions = function(s) {
+    let j = 0;
+    let res = [];
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] !== s[i + 1]) {
+            if (i - j + 1 >= 3) {
+                res.push([j,i]);
+            }
+            j = i + 1;
+        }
+    }
+    return res;
+};
+
+console.log(largeGroupPositions("abbxxxxzzy"))
+console.log(largeGroupPositions("abc"))
