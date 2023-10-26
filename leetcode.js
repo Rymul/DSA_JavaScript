@@ -1636,3 +1636,16 @@ var rangeSumBST = function(root, low, high) {
     return sum;
 };
 
+
+// 905. Sort Array By Parity
+
+var sortArrayByParity = function(nums) {
+    let res = [];
+    nums.forEach(n => {
+        n % 2 === 0 ? res.unshift(n) : res.push(n); 
+    })
+    return res;
+};
+
+console.log(sortArrayByParity([3,1,2,4]))
+console.log(sortArrayByParity([0]))
