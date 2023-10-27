@@ -1649,3 +1649,40 @@ var sortArrayByParity = function(nums) {
 
 console.log(sortArrayByParity([3,1,2,4]))
 console.log(sortArrayByParity([0]))
+
+
+
+// 1160. Find Words That Can Be Formed by Characters
+
+var countCharacters = function(words, chars) {
+    let count = 0;
+    for (let word of words) {
+        let map = makeMap(chars);
+        let isValid = true;
+        for (let char of word) {
+            if (map[char] > 0) {
+                map[char] -= 1;
+            } else {
+                isValid = false;
+            }
+        }
+        if (isValid) {
+            count += word.length;
+        }
+    }
+    return count;
+};
+
+const makeMap = (chars) => {
+    let map = {};
+    for (let i = 0; i < chars.length; i++) {
+        if (!map[chars[i]]) {
+            map[chars[i]] = 0;
+        }
+        map[chars[i]] += 1;
+    }
+    return map;
+}
+
+console.log(countCharacters(["cat","bt","hat","tree"], "atach"))
+console.log(countCharacters(["hello","world","leetcode"], "welldonehoneyr"))
