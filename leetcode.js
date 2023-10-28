@@ -1686,3 +1686,17 @@ const makeMap = (chars) => {
 
 console.log(countCharacters(["cat","bt","hat","tree"], "atach"))
 console.log(countCharacters(["hello","world","leetcode"], "welldonehoneyr"))
+
+
+// 832. Flipping an Image
+
+var flipAndInvertImage = function(image) {
+    for (let row in image) {
+        image[row] = image[row].reverse();
+        image[row] = image[row].map(n => 1 - n);
+    }
+    return image  
+};
+
+console.log(flipAndInvertImage([[1,1,0],[1,0,1],[0,0,0]]))
+console.log(flipAndInvertImage([[1,1,0,0],[1,0,0,1],[0,1,1,1],[1,0,1,0]]))
