@@ -1700,3 +1700,18 @@ var flipAndInvertImage = function(image) {
 
 console.log(flipAndInvertImage([[1,1,0],[1,0,1],[0,0,0]]))
 console.log(flipAndInvertImage([[1,1,0,0],[1,0,0,1],[0,1,1,1],[1,0,1,0]]))
+
+
+
+// 836. Rectangle Overlap
+
+var isRectangleOverlap = function(rec1, rec2) {
+    const [ax1, ay1, ax2, ay2] = rec1;
+    const [bx1, by1, bx2, by2] = rec2;
+    
+    return ax1 < bx2 && ax2 > bx1 && ay1 < by2 && ay2 > by1;
+};
+
+
+console.log(isRectangleOverlap([0,0,2,2], [1,1,3,3]))
+console.log(isRectangleOverlap([0,0,1,1], [2,2,3,3]))
