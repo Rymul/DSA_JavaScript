@@ -1715,3 +1715,28 @@ var isRectangleOverlap = function(rec1, rec2) {
 
 console.log(isRectangleOverlap([0,0,2,2], [1,1,3,3]))
 console.log(isRectangleOverlap([0,0,1,1], [2,2,3,3]))
+
+
+
+// 884. Uncommon Words from Two Sentences
+
+var uncommonFromSentences = function(s1, s2) {
+    let arr = [...s1.split(' '), ...s2.split(' ')];
+    const obj = {};
+    for (let i of arr) {
+        if (i in obj) {
+            obj[i] += 1;
+        } else {
+            obj[i] = 1;
+        }
+    }
+    arr = []
+    for (i in obj) {
+        if (obj[i] === 1) {
+            arr.push(i);
+        }
+    }
+    return arr
+};
+
+console.log(uncommonFromSentences("this apple is sweet", "this apple is sour"))
