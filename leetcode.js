@@ -1740,3 +1740,35 @@ var uncommonFromSentences = function(s1, s2) {
 };
 
 console.log(uncommonFromSentences("this apple is sweet", "this apple is sour"))
+
+
+// 888. Fair Candy Swap
+
+var fairCandySwap = function(aliceSizes, bobSizes) {
+    let total = 0;
+    const set = new Set();
+    let sumAlice = 0;
+
+    for (const num of aliceSizes) {
+        total += num;
+        sumAlice += num;
+    }
+
+    for (const num of bobSizes) {
+        total += num;
+        set.add(num);
+    }
+    
+    const half = total / 2;
+
+    for (const num of aliceSizes) {
+        const remainder = sumAlice - num;
+        const swap = half - remainder;
+        if (set.has(swap)) {
+            return [num, swap];
+        }
+    }
+};
+
+console.log(fairCandySwap([1,1], [2,2]))
+console.log(fairCandySwap([2], [1,3]))
