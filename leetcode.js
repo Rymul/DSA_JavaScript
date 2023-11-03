@@ -1772,3 +1772,15 @@ var fairCandySwap = function(aliceSizes, bobSizes) {
 
 console.log(fairCandySwap([1,1], [2,2]))
 console.log(fairCandySwap([2], [1,3]))
+
+
+
+// 1689. Partitioning Into Minimum Number Of Deci-Binary Numbers
+
+var minPartitions = function(n) {
+    return Math.max(...n)
+};
+
+console.log(minPartitions("32"))
+console.log(minPartitions("82734"))
+console.log(minPartitions("27346209830709182346"))
