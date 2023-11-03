@@ -1784,3 +1784,18 @@ var minPartitions = function(n) {
 console.log(minPartitions("32"))
 console.log(minPartitions("82734"))
 console.log(minPartitions("27346209830709182346"))
+
+
+
+// 1379. Find a Corresponding Node of a Binary Tree in a Clone of That Tree
+
+var getTargetCopy = function(original, cloned, target) {
+    if (original === null) {
+        return null;
+    }
+    if (original === target) {
+        return cloned;
+    }
+    return getTargetCopy(original.left, cloned.left, target) || getTargetCopy(original.right, cloned.right, target)
+};
+
