@@ -1799,3 +1799,20 @@ var getTargetCopy = function(original, cloned, target) {
     return getTargetCopy(original.left, cloned.left, target) || getTargetCopy(original.right, cloned.right, target)
 };
 
+
+
+// 1503. Last Moment Before All Ants Fall Out of a Plank
+
+var getLastMoment = function(n, left, right) {
+    let time = 0;
+    for (let position of left) {
+        time = Math.max(time, position);
+    }
+    for (let position of right) {
+        time = Math.max(time, n - position);
+    }
+    return time;
+};
+
+console.log(getLastMoment(4, [4,3], [0,1]))
+console.log(getLastMoment(7, [], [0,1,2,3,4,5,6,7]))
