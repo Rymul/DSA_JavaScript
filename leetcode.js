@@ -1827,3 +1827,25 @@ var nextGreatestLetter = function(letters, target) {
 
 console.log(nextGreatestLetter(["c","f","j"], "a"))
 console.log(nextGreatestLetter(["x","x","y","y"], "z"))
+
+
+
+// 806. Number of Lines To Write String
+
+var numberOfLines = function(widths, s) {
+    let lines = 1;
+    let last = 0;
+    const base = 'a'.charCodeAt(0);
+    for (let i = 0; i < s.length; i++) {
+        const width = widths[s.charCodeAt(i) - base];
+        last += width;
+        if (last > 100) {
+            lines++;
+            last = width;
+        }
+    }
+    return [lines, last];
+};
+
+console.log(numberOfLines([10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10], "abcdefghijklmnopqrstuvwxyz"))
+console.log(numberOfLines([4,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10], "bbbcccdddaaa"))
