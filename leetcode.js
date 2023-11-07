@@ -1816,3 +1816,14 @@ var getLastMoment = function(n, left, right) {
 
 console.log(getLastMoment(4, [4,3], [0,1]))
 console.log(getLastMoment(7, [], [0,1,2,3,4,5,6,7]))
+
+
+
+// 744. Find Smallest Letter Greater Than Target
+
+var nextGreatestLetter = function(letters, target) {
+    return letters.find(char => char > target) || letters[0];
+};
+
+console.log(nextGreatestLetter(["c","f","j"], "a"))
+console.log(nextGreatestLetter(["x","x","y","y"], "z"))
