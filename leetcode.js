@@ -1885,3 +1885,25 @@ var threeSum = function(nums) {
 
 console.log(threeSum([-1,0,1,2,-1,-4]))
 console.log(threeSum([0,1,1]))
+
+
+
+// 7. Reverse Integer
+
+var reverse = function(x) {
+    let reversed = 0;
+    const sign = x < 0 ? -1 : 1;
+    x = Math.abs(x);
+    while (x !== 0) {
+        const digit = x % 10;
+        reversed = reversed * 10 + digit;
+        x = Math.floor(x / 10);
+    }
+    const res = sign * reversed;
+    if (res > 2 ** 31 - 1 || res < -(2 ** 31)) return 0;
+    return res;
+};
+
+console.log(reverse(123))
+console.log(reverse(-123))
+
