@@ -1907,3 +1907,23 @@ var reverse = function(x) {
 console.log(reverse(123))
 console.log(reverse(-123))
 
+
+// 844. Backspace String Compare
+
+var backspaceCompare = function(s, t) {
+    const backspace = (str) => {
+        const stack = [];
+        for (const char of str) {
+            if (char === '#') {
+               if (stack.length > 0) stack.pop();
+            } else {
+                stack.push(char);
+            }
+        }
+        return stack.join('');
+    }
+    return backspace(s) === backspace(t);
+};
+
+console.log(backspaceCompare("ab##", "c#d#"))
+console.log(backspaceCompare("a#c", "b"))
