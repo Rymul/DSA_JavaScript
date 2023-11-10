@@ -1948,3 +1948,26 @@ var buddyStrings = function(s, goal) {
 
 console.log(buddyStrings('ab', 'ba'))
 console.log(buddyStrings('ab', 'ab'))
+
+
+
+// 821. Shortest Distance to a Character
+
+var shortestToChar = function(s, c) {
+    let res = [];
+    let prev = Infinity;
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] === c) prev = i;
+        res[i] = Math.abs(prev - i);
+    }
+    prev = Infinity;
+    for (let i = s.length - 1; i >=0; i--) {
+        if (s[i] === c) prev = i;
+        res[i] = Math.min(res[i], prev - i);
+    }
+    return res;
+};
+
+
+console.log(shortestToChar("loveleetcode", "e"))
+console.log(shortestToChar("aaab", "b"))
