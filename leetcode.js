@@ -1971,3 +1971,20 @@ var shortestToChar = function(s, c) {
 
 console.log(shortestToChar("loveleetcode", "e"))
 console.log(shortestToChar("aaab", "b"))
+
+
+
+// 908. Smallest Range I
+
+var smallestRangeI = function(nums, k) {
+    let diff = 0;
+    let arr = new Array(2);
+    if (nums.length === 1) return diff;
+    arr[0] = Math.max(...nums) - k;
+    arr[1] = Math.min(...nums) + k;
+    diff = arr[0] - arr[1];
+    return diff < 0 ? 0 : diff;
+};
+
+console.log(smallestRangeI([0, 10], 2))
+console.log(smallestRangeI([1, 3, 6], 3))
