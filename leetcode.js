@@ -2060,3 +2060,28 @@ var sortTheStudents = function(score, k) {
 
 console.log(sortTheStudents([[10,6,9,1],[7,5,11,2],[4,8,3,15]], 2))
 console.log(sortTheStudents([[3,4],[5,6]], 0))
+
+
+
+// 2161. Partition Array According to Given Pivot
+
+var pivotArray = function(nums, pivot) {
+    let res = [];
+    let i = 0;
+    let j = nums.length - 1;
+    let left = 0;
+    let right = nums.length - 1;
+    while (i < nums.length) {
+        if (nums[i] < pivot) res[left++] = nums[i];
+        if (nums[j] > pivot) res[right--] = nums[j];
+        i++;
+        j--;
+    }
+    while(left <= right) {
+        res[left++] = pivot
+    }
+    return res;
+};
+
+console.log(pivotArray([9,12,5,10,14,3,10], 10))
+console.log(pivotArray([-3,4,3,2], 2))
