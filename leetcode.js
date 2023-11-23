@@ -2048,3 +2048,15 @@ var removeNthFromEnd = function(head, n) {
     slow.next = slow.next.next;
     return head;
 };
+
+
+
+// 2545. Sort the Students by Their Kth Score
+
+var sortTheStudents = function(score, k) {
+    score.sort((a,b) => b[k] - a[k]);
+    return score;
+};
+
+console.log(sortTheStudents([[10,6,9,1],[7,5,11,2],[4,8,3,15]], 2))
+console.log(sortTheStudents([[3,4],[5,6]], 0))
