@@ -2085,3 +2085,30 @@ var pivotArray = function(nums, pivot) {
 
 console.log(pivotArray([9,12,5,10,14,3,10], 10))
 console.log(pivotArray([-3,4,3,2], 2))
+
+
+
+// 807. Max Increase to Keep City Skyline
+
+var maxIncreaseKeepingSkyline = function(grid) {
+    let res = 0;
+    let rMax = new Array(grid.length).fill(0);
+    let cMax = new Array(grid.length).fill(0);
+
+    for (let i = 0; i < grid.length; i++) {
+        for (let j = 0; j < grid.length; j++) {
+            rMax[i] = Math.max(rMax[i], grid[i][j]);
+            cMax[j] = Math.max(cMax[j], grid[i][j]);
+        }
+    }
+
+    for (let i = 0; i < grid.length; i++) {
+        for (let j = 0; j < grid.length; j++) {
+            res += Math.min(rMax[i], cMax[j]) - grid[i][j];
+        }
+    }
+    return res;
+};
+
+console.log(maxIncreaseKeepingSkyline([[3,0,8,4],[2,4,5,7],[9,2,6,3],[0,3,1,0]]))
+console.log(maxIncreaseKeepingSkyline([[0,0,0],[0,0,0],[0,0,0]]))
