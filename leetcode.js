@@ -2112,3 +2112,26 @@ var maxIncreaseKeepingSkyline = function(grid) {
 
 console.log(maxIncreaseKeepingSkyline([[3,0,8,4],[2,4,5,7],[9,2,6,3],[0,3,1,0]]))
 console.log(maxIncreaseKeepingSkyline([[0,0,0],[0,0,0],[0,0,0]]))
+
+
+
+// 922. Sort Array By Parity II
+
+var sortArrayByParityII = function(nums) {
+    let res = [];
+    let even = 0;
+    let odd = 1;
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] % 2 === 0) {
+            res[even] = nums[i];
+            even = even + 2;
+        } else {
+            res[odd] = nums[i];
+            odd = odd + 2;
+        }
+    }
+    return res;
+};
+
+console.log(sortArrayByParityII([4,2,5,7]))
+console.log(sortArrayByParityII([2,3]))
