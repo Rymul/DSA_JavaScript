@@ -2135,3 +2135,27 @@ var sortArrayByParityII = function(nums) {
 
 console.log(sortArrayByParityII([4,2,5,7]))
 console.log(sortArrayByParityII([2,3]))
+
+
+
+// 78. Subsets
+
+var subsets = function(nums) {
+    let res = [];
+    let temp = [];
+    let i = 0;
+
+    function generatePowerSet(nums, i, temp) {
+        if (i === nums.length) {
+            res.push(temp);
+            return
+        }
+        generatePowerSet(nums, i + 1, [...temp, nums[i]]);
+        generatePowerSet(nums, i + 1, temp);
+    }
+    generatePowerSet(nums, i, temp);
+    return res;
+};
+
+console.log(subsets([1,2,3]))
+console.log(subsets([0]))
