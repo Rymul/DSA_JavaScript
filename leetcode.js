@@ -2159,3 +2159,19 @@ var subsets = function(nums) {
 
 console.log(subsets([1,2,3]))
 console.log(subsets([0]))
+
+
+
+// 1561. Maximum Number of Coins You Can Get
+
+var maxCoins = function(piles) {
+    piles.sort((a, b) => a - b);
+    let res = 0;
+    for (let i = 0, j = piles.length - 2; i < j; i++, j -= 2) {
+        res += piles[j];
+    }
+    return res;
+};
+
+console.log(maxCoins([2,4,1,2,7,8]))
+console.log(maxCoins([2,4,5]))
