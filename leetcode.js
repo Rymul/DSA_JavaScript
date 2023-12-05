@@ -2208,3 +2208,32 @@ var searchRotatedSorted = function(nums, target) {
 
 console.log(searchRotatedSorted([4,5,6,7,0,1,2], 0))
 console.log(searchRotatedSorted([4,5,6,7,0,1,2], 3))
+
+
+
+// 1630. Arithmetic Subarrays
+
+var checkArithmeticSubarrays = function(nums, l, r) {
+    let res = [];
+
+    for (let i = 0; i < l.length; i++) {
+        const arr = nums.slice(l[i], r[i] + 1);
+        res.push(check(arr));
+    }
+    return res;
+};
+
+const check = (arr) => {
+    arr.sort((a,b) => a - b);
+    let difference = arr[1] - arr[0];
+
+    for (let i = 2; i < arr.length; i++) {
+        if (arr[i] - arr[i - 1] !== difference) {
+            return false;
+        }
+    }
+    return true;
+}
+
+console.log(checkArithmeticSubarrays([4,6,5,9,3,7], [0,0,2], [2,3,5]))
+console.log(checkArithmeticSubarrays([-12,-9,-3,-12,-6,15,20,-25,-20,-15,-10], [0,1,6,4,8,7], [4,4,9,7,9,10]))
