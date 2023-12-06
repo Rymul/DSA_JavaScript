@@ -2259,3 +2259,27 @@ var minPairSum = function(nums) {
 
 console.log(minPairSum([3,5,2,3]))
 console.log(minPairSum([3,5,4,2,4,6]))
+
+
+
+// 2391. Minimum Amount of Time to Collect Garbage
+
+var garbageCollection = function(garbage, travel) {
+    let res = 0;
+    for (const g of garbage) {
+        res += g.length;
+    }
+
+    let [m, p, g] = [false, false, false];
+
+    for (let i = travel.length; i > 0; i--) {
+        m = m || garbage[i].includes('M');
+        p = p || garbage[i].includes('P');
+        g= g || garbage[i].includes('G');
+        res += travel[i - 1] * (m + p + g);
+    }
+    return res;
+};
+
+console.log(garbageCollection(["G","P","GP","GG"], [2,4,3]))
+console.log(garbageCollection(["MMM","PGM","GP"], [3,10]))
