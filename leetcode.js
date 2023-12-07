@@ -2283,3 +2283,25 @@ var garbageCollection = function(garbage, travel) {
 
 console.log(garbageCollection(["G","P","GP","GG"], [2,4,3]))
 console.log(garbageCollection(["MMM","PGM","GP"], [3,10]))
+
+
+
+// 2079. Watering Plants
+
+var wateringPlants = function(plants, capacity) {
+    let steps = 0;
+    let newCapacity = capacity;
+    for (let i = 0; i < plants.length; i++) {
+        if (newCapacity >= plants[i]) {
+            steps += 1;
+        } else {
+            newCapacity = capacity;
+            steps = steps + (2 * i + 1);
+        }
+        newCapacity = newCapacity - plants[i];
+    }
+    return steps;
+};
+
+console.log(wateringPlants([2,2,3,3], 5))
+console.log(wateringPlants([1,1,1,4,2,3], 4))
