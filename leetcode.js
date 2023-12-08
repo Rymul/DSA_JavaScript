@@ -2305,3 +2305,25 @@ var wateringPlants = function(plants, capacity) {
 
 console.log(wateringPlants([2,2,3,3], 5))
 console.log(wateringPlants([1,1,1,4,2,3], 4))
+
+
+
+// 763. Partition Labels
+
+var partitionLabels = function(s) {
+    const res = [];
+    let left = 0;
+    let last = -1;
+    
+    for (let i = 0; i < s.length; i++) {
+        last = Math.max(s.lastIndexOf(s[i]), last);
+        if (i === last) {
+            res.push(i - left + 1);
+            left = i + 1;
+        }
+    }
+    return res;
+};
+
+console.log(partitionLabels("ababcbacadefegdehijhklij"))
+console.log(partitionLabels("eccbbbbdec"))
