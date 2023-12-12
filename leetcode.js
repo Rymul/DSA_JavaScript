@@ -2327,3 +2327,20 @@ var partitionLabels = function(s) {
 
 console.log(partitionLabels("ababcbacadefegdehijhklij"))
 console.log(partitionLabels("eccbbbbdec"))
+
+
+
+// 1512. Number of Good Pairs
+
+var numIdenticalPairs = function(nums) {
+    let res = 0;
+    const count = {};
+    for (let num of nums) {
+        res += count[num] || 0;
+        count[num] = (count[num] || 0) + 1;
+    }
+    return res;
+};
+
+console.log(numIdenticalPairs([1,2,3,1,1,3]))
+console.log(numIdenticalPairs([1,1,1,1]))
