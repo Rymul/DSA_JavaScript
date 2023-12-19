@@ -2344,3 +2344,25 @@ var numIdenticalPairs = function(nums) {
 
 console.log(numIdenticalPairs([1,2,3,1,1,3]))
 console.log(numIdenticalPairs([1,1,1,1]))
+
+
+
+// 6. Zigzag Conversion
+
+var convert = function(s, numRows) {
+    if (numRows === 1 || s.length < numRows) return s;
+    let rows = [], converted = '', reverse = false, count = 0;
+
+    for (let i = 0; i < numRows; i++) {
+        rows[i] = [];
+    }
+    for ( let i = 0; i < s.length; i++) {
+        rows[count].push(s[i]);
+        reverse ? count-- : count++;
+        if (count === numRows - 1 || count === 0) reverse = !reverse;
+    }
+    return rows.reduce((converted, cur) => converted + cur.join(''), '');
+};
+
+console.log(convert("PAYPALISHIRING", 3))
+console.log(convert("PAYPALISHIRING", 4))
