@@ -2366,3 +2366,25 @@ var convert = function(s, numRows) {
 
 console.log(convert("PAYPALISHIRING", 3))
 console.log(convert("PAYPALISHIRING", 4))
+
+
+// 46. Permutations
+
+var permute = function(nums) {
+    const res = [];
+
+    const dfs = (curr, numbers) => {
+        if (numbers.length === 0) {
+            res.push(curr);
+            return;
+        }
+        for (let i = 0; i < numbers.length; i++) {
+            dfs([...curr, numbers[i]], [...numbers.slice(0, i), ...numbers.slice(i + 1)]);
+        }
+    }
+    dfs([], nums);
+    return res;
+};
+
+console.log(permute([1,2,3]))
+console.log(permute([0, 1]))
