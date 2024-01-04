@@ -2416,3 +2416,21 @@ var combinationSum2 = function(candidates, target) {
 
 console.log(combinationSum2([10,1,2,7,6,1,5], 8))
 console.log(combinationSum2([2,5,2,1,2], 5))
+
+
+// 53. Maximum Subarray
+
+var maxSubArray = function(nums) {
+    let maxSum = nums[0];
+
+    for (let i = 1; i < nums.length; i++) {
+        nums[i] = Math.max(0, nums[i - 1]) + nums[i]
+        if (nums[i] > maxSum) {
+            maxSum = nums[i];
+        }
+    }
+    return maxSum;
+};
+
+console.log(maxSubArray([-2,1,-3,4,-1,2,1,-5,4]))
+console.log(maxSubArray([5,4,-1,7,8]))
