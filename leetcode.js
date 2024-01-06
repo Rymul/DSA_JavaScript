@@ -2456,3 +2456,18 @@ var rotate = function(matrix) {
 
 console.log(rotate([[1,2,3],[4,5,6],[7,8,9]]))
 console.log(rotate([[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]))
+
+
+// 62. Unique Paths
+
+var uniquePaths = function(m, n) {
+    if(m === 1 || n === 1) return 1;
+    if(m === 0 || n === 0) return 0;
+    const left = uniquePaths(m-1, n);
+    const right = uniquePaths(m, n-1);
+
+    return left + right;
+};
+
+console.log(uniquePaths(3, 7))
+console.log(uniquePaths(3, 2))
