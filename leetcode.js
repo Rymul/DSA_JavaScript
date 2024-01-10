@@ -2496,3 +2496,29 @@ var minPathSum = function(grid) {
 
 console.log(minPathSum([[1,3,1],[1,5,1],[4,2,1]]))
 console.log(minPathSum([[1,2,3],[4,5,6]]))
+
+
+
+// 55. Jump Game
+
+
+var canJump = function(nums) {
+    let target = nums.length - 1;
+    let max = 0;
+    let i = 0;
+
+    while(i < nums.length) {
+        max = Math.max(max, i + nums[i]);
+        if (max >= target) {
+            return true;
+        }
+        if (max <= i && nums[i] === 0) {
+            return false;
+        }
+        i++;
+    }
+    return false;
+};
+
+console.log(canJump([2,3,1,1,4]))
+console.log(canJump([3,2,1,0,4]))
