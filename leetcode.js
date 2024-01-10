@@ -2522,3 +2522,29 @@ var canJump = function(nums) {
 
 console.log(canJump([2,3,1,1,4]))
 console.log(canJump([3,2,1,0,4]))
+
+
+// 77. Combinations
+
+var combine = function(n, k) {
+    let res = [];
+
+    const makeCombos = (start, curr) => {
+        if (curr.length === k) {
+            res.push([...curr]);
+            return;
+        }
+
+        for (let i = start; i <= n; i++) {
+            curr.push(i);
+            makeCombos(i + 1, curr);
+            curr.pop();
+        }
+        return;
+    }
+    makeCombos(1, []);
+    return res;
+};
+
+console.log(combine(4, 2))
+console.log(combine(1, 1))
