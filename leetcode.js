@@ -2590,3 +2590,28 @@ var buildTree = function(preorder, inorder) {
     }
     return build();
 };
+
+
+// 113. Path Sum II
+
+var pathSum = function(root, targetSum) {
+    let res = [];
+    const dfs = (node, path, target) => {
+        if (node === null) {
+            return;
+        }
+        path.push(node.val);
+        target -= node.val;
+        if (node.left === null && node.right === null && target === 0) {
+            res.push(path.slice());
+            path.pop();
+            return;
+        }
+        dfs(node.left, path, target);
+        dfs(node.right, path, target);
+        path.pop();
+        return;
+    }
+    dfs(root, [], targetSum);
+    return res;
+};
