@@ -2628,3 +2628,26 @@ var connect = function(root) {
     connect(root.right);
     return root;
 };
+
+
+
+// 117. Populating Next Right Pointers in Each Node II
+
+var connect2 = function(root) {
+    if (root === null) return root;
+    const level = 0;
+    const queue = [[root, level]];
+
+    while (queue.length) {
+        const [curr, level] = queue.shift();
+        if (queue.length) {
+            const [next, nextLevel] = queue[0];
+            if (level === nextLevel) {
+                curr.next = next;
+            }
+        }
+        if (curr.left) queue.push([curr.left, level + 1]);
+        if (curr.right) queue.push([curr.right, level + 1]);
+    }
+    return root;
+};
