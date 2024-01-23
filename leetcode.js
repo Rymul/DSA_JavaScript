@@ -2692,3 +2692,35 @@ var searchMatrix = function(matrix, target) {
 
 console.log(searchMatrix([[1,3,5,7],[10,11,16,20],[23,30,34,60]], 3))
 console.log(searchMatrix([[1,3,5,7],[10,11,16,20],[23,30,34,60]], 13))
+
+
+
+// 96. Unique Binary Search Trees
+
+var numTrees = function(n) {
+    const treeMemo = [];
+    return createTreeMemo(n, treeMemo);
+};
+
+const createTreeMemo = (n, treeMemo) => {
+    if (n === 1) return 1;
+    if (treeMemo[n]) return treeMemo[n];
+    let totalTrees = 0;
+
+    for (let i = 1; i <= n; i++) {
+        let leftTrees = 1;
+        let rightTrees = 1;
+        if (i > 1) {
+            leftTrees = createTreeMemo(i - 1, treeMemo);
+        }
+        if (i < n) {
+            rightTrees = createTreeMemo(n - i, treeMemo);
+        }
+        totalTrees += leftTrees * rightTrees;
+    }
+    treeMemo[n] = totalTrees;
+    return totalTrees;
+}
+
+console.log(numTrees(3))
+console.log(numTrees(1))
