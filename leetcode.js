@@ -2724,3 +2724,36 @@ const createTreeMemo = (n, treeMemo) => {
 
 console.log(numTrees(3))
 console.log(numTrees(1))
+
+
+
+// 47. Permutations II
+
+var permuteUnique = function(nums) {
+    let res = [];
+    permDfs(nums.sort(), res, new Set());
+    return res;
+};
+
+const permDfs = (nums, res, visited) => {
+    if (nums.length === visited.size) {
+        let perm = [];
+        for (let i of visited) {
+            perm.push(nums[i]);
+        }
+        res.push(perm);
+        return;
+    }
+
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] === nums[i - 1] && !visited.has(i - 1)) continue;
+        if (visited.has(i)) continue;
+        visited.add(i);
+        permDfs(nums, res, visited);
+        visited.delete(i);
+    }
+}
+
+console.log(permuteUnique([1,1,2]))
+console.log(permuteUnique([1,2,3]))
+
