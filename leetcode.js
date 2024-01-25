@@ -2757,3 +2757,21 @@ const permDfs = (nums, res, visited) => {
 console.log(permuteUnique([1,1,2]))
 console.log(permuteUnique([1,2,3]))
 
+
+
+
+// 1. Two Sum
+
+var twoSum = function(nums, target) {
+    let count = {};
+    for(let i = 0; i < nums.length; i++) {
+        if(target - nums[i] in count) {
+            return [count[target - nums[i]], i]
+        } else {
+            count[nums[i]] = i
+        }
+    }
+};
+
+console.log(twoSum([2,7,11,15], 9))
+console.log(twoSum([3,2,4], 6))
