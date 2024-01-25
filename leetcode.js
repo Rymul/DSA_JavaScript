@@ -2775,3 +2775,18 @@ var twoSum = function(nums, target) {
 
 console.log(twoSum([2,7,11,15], 9))
 console.log(twoSum([3,2,4], 6))
+
+
+// 9. Palindrome Number
+
+var isPalindrome = function(x) {
+    x = x.toString()
+    for(let start = 0; start < Math.floor(x.length / 2); start++) {
+        let end = x.length - start - 1
+        if(x[start] !== x[end]) return false;
+    }
+    return true
+};
+
+console.log(isPalindrome(121))
+console.log(isPalindrome(10))
