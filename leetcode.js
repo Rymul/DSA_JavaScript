@@ -2808,3 +2808,23 @@ var removeElement = function(nums, val) {
 
 console.log(removeElement([3,2,2,3], 3))
 console.log(removeElement([0,1,2,2,3,0,4,2], 2))
+
+
+
+// 35. Search Insert Position
+
+var searchInsert = function(nums, target) {
+    if(target < nums[0]) return 0
+    for(i=0; i < nums.length; i++){
+        if(nums[i] === target) {
+            return i
+        } else if(nums[i] < target && target < nums[i+1]) {
+            return i+1
+        } else if (i === nums.length-1) {
+            return nums.length
+        }
+    }
+};
+
+console.log(searchInsert([1,3,5,6], 5))
+console.log(searchInsert([1,3,5,6], 7))
