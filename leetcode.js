@@ -2828,3 +2828,41 @@ var searchInsert = function(nums, target) {
 
 console.log(searchInsert([1,3,5,6], 5))
 console.log(searchInsert([1,3,5,6], 7))
+
+
+// 66. Plus One
+
+var plusOne = function(digits) {
+    let add = false
+
+    if(digits.length === 1 && digits[0] === 9) {
+            return [1,0]
+    }
+    
+    for (let i = digits.length - 1; i >= 0; i--){
+        
+        if (digits[i] < 9 && i === digits.length-1) {
+            digits[i] += 1
+            return digits
+        } else if (i === digits.length-1) {
+            digits[i] = 0
+            add = true
+            continue
+        }
+        
+        if(add === true && digits[i] < 9) {
+            digits[i] += 1
+            return digits
+        } else if (add === true) {
+            digits[i] = 0
+        }
+        
+        if ( i === 0 ) {
+            digits.unshift(1)
+        }
+    }      
+    return digits
+};
+
+console.log(plusOne([1,2,3]))
+console.log(plusOne([4,3,2,1]))
