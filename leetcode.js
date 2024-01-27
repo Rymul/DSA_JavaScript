@@ -2866,3 +2866,31 @@ var plusOne = function(digits) {
 
 console.log(plusOne([1,2,3]))
 console.log(plusOne([4,3,2,1]))
+
+
+
+// 38. Count and Say
+
+var countAndSay = function(n) {
+    let str = '1';
+    while (n > 1) {
+        let newStr = '';
+        let count = 0;
+        let say = str[0];
+        for (let i = 0; i < str.length; i++) {
+            if (str[i] === say) {
+                count++;
+            } else {
+                newStr += count + say;
+                count = 1;
+                say = str[i];
+            }
+        }
+        str = newStr + count + say;
+        n--;
+    }
+    return str;
+};
+
+console.log(countAndSay(1))
+console.log(countAndSay(4))
