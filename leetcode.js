@@ -2894,3 +2894,58 @@ var countAndSay = function(n) {
 
 console.log(countAndSay(1))
 console.log(countAndSay(4))
+
+
+
+// 200. Number of Islands
+
+var numIslands = function(grid) {
+    let count = 0;
+    let visited = new Set();
+
+    for(let row = 0; row < grid.length; row++){
+        for(let col = 0; col < grid[0].length; col++){
+            if(islandDfs(grid, row, col, visited)) count++;
+        }
+    }
+    return count
+};
+
+const islandDfs = (grid, row, col, visited) => {
+    if(!inBounds(grid, row, col)) return false;
+    const pos = row + "," + col;
+    if(visited.has(pos)) return false;
+    if(grid[row][col] === "0") return false;
+
+    visited.add(pos);
+
+    const directions = [[1,0], [0,1], [-1,0], [0,-1]]
+
+    for (let dir of directions) {
+        const newRow = row+dir[0];
+        const newCol = col+dir[1];
+
+        islandDfs(grid, newRow, newCol, visited);
+    }
+    return true;
+}
+
+const inBounds = (grid, row, col) => {
+    const rowInbounds = 0 <= row && row < grid.length;
+    const colInbounds = 0 <= col && col < grid[0].length;
+    return rowInbounds && colInbounds;
+}
+
+console.log(numIslands([
+    ["1","1","1","1","0"],
+    ["1","1","0","1","0"],
+    ["1","1","0","0","0"],
+    ["0","0","0","0","0"]
+  ]))
+console.log(numIslands([
+    ["1","1","0","0","0"],
+    ["1","1","0","0","0"],
+    ["0","0","1","0","0"],
+    ["0","0","0","1","1"]
+  ]))
+
