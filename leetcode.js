@@ -3024,3 +3024,10 @@ var createCounter = function(n) {
         return count++;
     };
 };
+
+
+// 2621. Sleep
+
+async function sleep(millis) {
+    await new Promise(resolve => setTimeout(resolve, millis));
+}
