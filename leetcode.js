@@ -3014,3 +3014,13 @@ var partition = function(head, x) {
     return before.next;
 };
 
+
+
+// 2620. Counter
+
+var createCounter = function(n) {
+    let count = n;
+    return function() {
+        return count++;
+    };
+};
