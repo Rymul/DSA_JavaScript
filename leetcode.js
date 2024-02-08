@@ -3059,3 +3059,23 @@ var threeSumClosest = function(nums, target) {
 
 console.log(threeSumClosest([-1,2,1,-4], 1))
 console.log(threeSumClosest([0,0,0], 1))
+
+
+
+// 3. Longest Substring Without Repeating Characters
+
+var lengthOfLongestSubstring = function(s) {
+    const visited = new Map();
+    let start = 0;
+    let longest = 0;
+    
+    for (let i = 0; i < s.length; i++) {
+        if (visited.has(s[i])) start = Math.max(visited.get(s[i]) + 1, start);
+        visited.set(s[i], i)
+        longest = Math.max(longest, i - start + 1);
+    }
+    return longest;    
+};
+
+console.log(lengthOfLongestSubstring("abcabcbb"))
+console.log(lengthOfLongestSubstring("bbbbb"))
