@@ -3120,3 +3120,24 @@ function findMaxNonIntersectingSegments(A) {
   console.log(findMaxNonIntersectingSegments(arr1)); // Output: 3
   console.log(findMaxNonIntersectingSegments(arr2)); // Output: 1
   console.log(findMaxNonIntersectingSegments(arr3)); // Output: 2
+
+
+// Count cars moving through speed camera
+
+function countCars(str) {
+    let res = 0;
+    for (let i = 0, count = 0; i < str.length; i++) {
+        if (str[i] === ".") count++;
+        else if (str[i] === "<") res += count;
+    }
+
+    for (let i = str.length - 1, count = 0; i >= 0; i--) {
+        if (str[i] === ".") count++;
+        else if (str[i] === ">") res += count;
+    }
+    return res;
+}
+
+console.log(countCars(".>..."))
+console.log(countCars(".>.<.>"))
+console.log(countCars(">>>.<<<"))
