@@ -3079,3 +3079,44 @@ var lengthOfLongestSubstring = function(s) {
 
 console.log(lengthOfLongestSubstring("abcabcbb"))
 console.log(lengthOfLongestSubstring("bbbbb"))
+
+
+// Max number of non-intersecting segments with same sum
+
+function findMaxNonIntersectingSegments(A) {
+    const included = {}
+    function isIncluded(sum, index) {
+      const key = `${sum}_${index}` // creates a unique key
+      if (included[key]) return true
+      included[key] = true
+      return false
+    }
+  
+    const sums = {}
+    let max = 0
+    for (let i = 0; i < A.length - 1; i++) {
+      const sum = A[i] + A[i + 1]
+  
+      if (sums[sum]) {
+        if (!isIncluded(sum, i)) sums[sum].push(i)
+        if (!isIncluded(sum, i+1)) sums[sum].push(i+1)
+      } else {
+        sums[sum] = [i, i+1]
+        isIncluded(sum, i) // seen `i`
+        isIncluded(sum, i+1) // seen `i+1`
+      }
+  
+      const numberOfSegment = Math.floor(sums[sum].length / 2) // divides `2` since a segment contains two adjacent elements
+      max = Math.max(max, numberOfSegment)
+    }
+  
+    return max
+  }
+  // Test cases
+  const arr1 = [10, 1, 3, 1, 2, 2, 1, 0, 4];
+  const arr2 = [5, 3, 1, 3, 2, 3];
+  const arr3 = [9, 9, 9, 9];
+  
+  console.log(findMaxNonIntersectingSegments(arr1)); // Output: 3
+  console.log(findMaxNonIntersectingSegments(arr2)); // Output: 1
+  console.log(findMaxNonIntersectingSegments(arr3)); // Output: 2
