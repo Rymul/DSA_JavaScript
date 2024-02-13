@@ -3141,3 +3141,43 @@ function countCars(str) {
 console.log(countCars(".>..."))
 console.log(countCars(".>.<.>"))
 console.log(countCars(">>>.<<<"))
+
+
+// Fix potholes in road given budget
+console.log("Fix potholes in road given budget")
+
+function fixPotholes(n, s, b) {
+    let consecutivePotholesCount = [];
+    let curr = 0
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] === 'x') {
+            curr += 1;
+        } else {
+            if (curr > 0) {
+                consecutivePotholesCount.push(curr);
+            }
+            curr = 0;
+        }
+    }
+    if (curr > 0) {
+        consecutivePotholesCount.push(curr)
+    }
+    consecutivePotholesCount.sort().reverse();
+    let res = 0;
+    
+    for (let i = 0; i < consecutivePotholesCount.length; i++) {
+        if (consecutivePotholesCount[i] + 1 <= b) {
+            res += consecutivePotholesCount[i];
+            b -= (consecutivePotholesCount[i] + 1);
+        } else {
+            res += Math.max(0, b - 1);
+            break
+        }
+    }
+    return res;
+}
+
+console.log(fixPotholes(17, "...xxx..x....xxx.", 7)) // 5
+console.log(fixPotholes(7, "..xxxxx", 4)) // 3
+console.log(fixPotholes(11, "x.x.xxx...x", 14)) // 6
+console.log(fixPotholes(2, "..", 5)) // 0
