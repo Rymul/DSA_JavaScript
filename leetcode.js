@@ -3144,7 +3144,6 @@ console.log(countCars(">>>.<<<"))
 
 
 // Fix potholes in road given budget
-console.log("Fix potholes in road given budget")
 
 function fixPotholes(n, s, b) {
     let consecutivePotholesCount = [];
@@ -3204,3 +3203,18 @@ var findMin = function(nums) {
 console.log(findMin([3,4,5,1,2]))
 console.log(findMin([4,5,6,7,0,1,2]))
 console.log(findMin([11,13,15,17]))
+
+
+// 268. Missing Number
+
+var missingNumber = function(nums) {
+    let sum = 0;
+    for (let i = 0; i < nums.length; i++) {
+        sum += i + 1 - nums[i];
+    }
+    return sum;
+};
+
+console.log(missingNumber([3,0,1]))
+console.log(missingNumber([0,1]))
+console.log(missingNumber([9,6,4,2,3,5,7,0,1]))
