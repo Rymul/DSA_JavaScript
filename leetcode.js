@@ -3181,3 +3181,26 @@ console.log(fixPotholes(17, "...xxx..x....xxx.", 7)) // 5
 console.log(fixPotholes(7, "..xxxxx", 4)) // 3
 console.log(fixPotholes(11, "x.x.xxx...x", 14)) // 6
 console.log(fixPotholes(2, "..", 5)) // 0
+
+
+
+// 153. Find Minimum in Rotated Sorted Array
+
+var findMin = function(nums) {
+    let left = 0;
+    let right = nums.length - 1;
+
+    while (left < right) {
+        let middle = Math.floor((left + right)/2)
+        if (nums[middle] > nums[right]) {
+            left = middle + 1;
+        } else {
+            right = middle;
+        }  
+    }
+    return nums[left];
+};
+
+console.log(findMin([3,4,5,1,2]))
+console.log(findMin([4,5,6,7,0,1,2]))
+console.log(findMin([11,13,15,17]))
