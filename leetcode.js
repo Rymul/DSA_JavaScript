@@ -3245,3 +3245,25 @@ var isMonotonic = function(nums) {
 console.log(isMonotonic([1,2,2,3]))
 console.log(isMonotonic([6,5,4,4]))
 console.log(isMonotonic([1,3,2]))
+
+
+
+// 24. Swap Nodes in Pairs
+
+var swapPairs = function(head) {
+    let dummy = new ListNode(-1);
+    let prev = dummy;
+    dummy.next = head;
+
+    while(head && head.next) {
+        let temp1 = head;
+        let temp2 = head.next;
+
+        prev.next = temp2;
+        temp1.next = temp2.next;
+        temp2.next = temp1;
+        prev = temp1;
+        head = temp1.next
+    }
+    return dummy.next;
+};
