@@ -3218,3 +3218,30 @@ var missingNumber = function(nums) {
 console.log(missingNumber([3,0,1]))
 console.log(missingNumber([0,1]))
 console.log(missingNumber([9,6,4,2,3,5,7,0,1]))
+
+
+
+// 896. Monotonic Array
+
+var isMonotonic = function(nums) {
+    if (nums.length < 2) return true;
+    let increasing = true;
+    let decreasing = true;
+
+    for (let i = 1; i < nums.length; i++) {
+        if (!increasing && !decreasing) {
+            return false;
+        }
+        if (nums[i] < nums[i - 1]) {
+            increasing = false;
+        }
+        if (nums[i] > nums[i - 1]) {
+            decreasing = false;
+        }
+    }
+    return increasing || decreasing;
+};
+
+console.log(isMonotonic([1,2,2,3]))
+console.log(isMonotonic([6,5,4,4]))
+console.log(isMonotonic([1,3,2]))
