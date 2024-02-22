@@ -3267,3 +3267,29 @@ var swapPairs = function(head) {
     }
     return dummy.next;
 };
+
+
+
+// 56. Merge Intervals
+
+var merge = function(intervals) {
+    if (!intervals.length) return [];
+    let merged = [];
+    intervals.sort((a, b) => a[0] - b[0]);
+    let mergedInterval = intervals[0];
+
+    for (let i = 0; i < intervals.length; i++) {
+        let interval = intervals[i];
+        if (interval[0] <= mergedInterval[1]) {
+            mergedInterval[1] = Math.max(mergedInterval[1], interval[1]);
+        } else {
+            merged.push(mergedInterval);
+            mergedInterval = interval;
+        }
+    }
+    merged.push(mergedInterval);
+    return merged;
+};
+
+console.log(merge([[1,3],[2,6],[8,10],[15,18]]))
+console.log(merge([[1,4],[4,5]]))
