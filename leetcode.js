@@ -3293,3 +3293,19 @@ var merge = function(intervals) {
 
 console.log(merge([[1,3],[2,6],[8,10],[15,18]]))
 console.log(merge([[1,4],[4,5]]))
+
+
+
+// 961. N-Repeated Element in Size 2N Array
+
+var repeatedNTimes = function(nums) {
+    let seen = new Set();
+    for (let n of nums) {
+        if (seen.has(n)) return n;
+        seen.add(n);
+    }
+};
+
+console.log(repeatedNTimes([1,2,3,3]))
+console.log(repeatedNTimes([2,1,2,5,3,2]))
+console.log(repeatedNTimes([5,1,5,2,5,3,5,4]))
