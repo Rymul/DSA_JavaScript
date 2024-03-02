@@ -3375,3 +3375,29 @@ var twoSum2 = function(numbers, target) {
 console.log(twoSum2([2,7,11,15], 9))
 console.log(twoSum2([2,3,4], 6))
 console.log(twoSum2([-1,0], -1))
+
+
+
+// 283. Move Zeroes
+
+var moveZeroes = function(nums) {
+    let slow = 0;
+    let fast = slow + 1;
+    
+    while (fast <= nums.length - 1) {
+        if (nums[slow] !== 0) {
+            slow++;
+            fast++;
+        } else {
+            if (nums[fast] !== 0) {
+                [nums[slow], nums[fast]] = [nums[fast], nums[slow]];
+                slow++;
+            }
+            fast++;
+        }
+    }
+    return nums;
+};
+
+console.log(moveZeroes([0,1,0,3,12]))
+console.log(moveZeroes([0]))
