@@ -3401,3 +3401,15 @@ var moveZeroes = function(nums) {
 
 console.log(moveZeroes([0,1,0,3,12]))
 console.log(moveZeroes([0]))
+
+
+// 292. Nim Game
+
+var canWinNim = function(n) {
+    if (n % 4 === 0) return false;
+    else return true;
+};
+
+console.log(canWinNim(4))
+console.log(canWinNim(2))
+console.log(canWinNim(1))
