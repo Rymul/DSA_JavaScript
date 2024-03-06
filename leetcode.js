@@ -3413,3 +3413,17 @@ var canWinNim = function(n) {
 console.log(canWinNim(4))
 console.log(canWinNim(2))
 console.log(canWinNim(1))
+
+
+// 326. Power of Three
+
+var isPowerOfThree = function(n) {
+    while(n > 1) {
+        n /= 3;
+    }
+    return n === 1;
+};
+
+console.log(isPowerOfThree(27))
+console.log(isPowerOfThree(0))
+console.log(isPowerOfThree(-1))
