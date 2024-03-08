@@ -3445,3 +3445,29 @@ var countBattleships = function (board) {
 
 console.log(countBattleships([["X", ".", ".", "X"], [".", ".", ".", "X"], [".", ".", ".", "X"]]))
 console.log(countBattleships([["."]]))
+
+
+// 99. Recover Binary Search Tree
+
+var recoverTree = function(root) {
+    let first = null;
+    let last = null;
+    let prev = null;
+
+    const treeDfs = (node) => {
+        if (!node) return;
+        treeDfs(node.left);
+        
+        if (prev && node.val < prev.val) {
+            if (first === null) first = prev;
+            last = node;
+        }
+        prev = node;
+        treeDfs(node.right);
+    }
+    treeDfs(root);
+    let temp = first.val;
+    first.val = last.val;
+    last.val = temp;
+    return root;
+};
