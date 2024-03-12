@@ -3471,3 +3471,22 @@ var recoverTree = function(root) {
     last.val = temp;
     return root;
 };
+
+
+
+// 129. Sum Root to Leaf Numbers
+
+var sumNumbers = function(root) {
+    let res = 0;
+
+    const sumDfs = (node, sum) => {
+        if (!node.left && !node.right) res += sum * 10 + node.val;
+        else {
+            if (node.left) sumDfs(node.left, sum * 10 + node.val);
+            if (node.right) sumDfs(node.right, sum * 10 + node.val);
+        }
+    }
+    sumDfs(root, 0);
+    return res;
+};
+
