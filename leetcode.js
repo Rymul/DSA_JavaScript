@@ -3525,3 +3525,21 @@ var searchRange = function (nums, target) {
 console.log(searchRange([5, 7, 7, 8, 8, 10], 8))
 console.log(searchRange([5, 7, 7, 8, 8, 10], 6))
 console.log(searchRange([], 0))
+
+
+
+// 80. Remove Duplicates from Sorted Array II
+
+var removeDuplicates2 = function(nums) {
+    let k = 0;
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] !== nums[i + 2]) {
+            nums[k] = nums[i];
+            k++;
+        }
+    }
+    return k;
+};
+
+console.log(removeDuplicates2([1,1,1,2,2,3]))
+console.log(removeDuplicates2([0,0,1,1,1,1,2,3,3]))
