@@ -3449,7 +3449,7 @@ console.log(countBattleships([["."]]))
 
 // 99. Recover Binary Search Tree
 
-var recoverTree = function(root) {
+var recoverTree = function (root) {
     let first = null;
     let last = null;
     let prev = null;
@@ -3457,7 +3457,7 @@ var recoverTree = function(root) {
     const treeDfs = (node) => {
         if (!node) return;
         treeDfs(node.left);
-        
+
         if (prev && node.val < prev.val) {
             if (first === null) first = prev;
             last = node;
@@ -3476,7 +3476,7 @@ var recoverTree = function(root) {
 
 // 129. Sum Root to Leaf Numbers
 
-var sumNumbers = function(root) {
+var sumNumbers = function (root) {
     let res = 0;
 
     const sumDfs = (node, sum) => {
@@ -3490,3 +3490,38 @@ var sumNumbers = function(root) {
     return res;
 };
 
+
+
+// 34. Find First and Last Position of Element in Sorted Array
+
+var searchRange = function (nums, target) {
+    const binarySearch = (nums, target, isMore) => {
+        let left = 0;
+        let right = nums.length - 1;
+        let i = -1;
+
+        while (left <= right) {
+            const mid = Math.floor((left + right) / 2);
+            if (nums[mid] > target) {
+                right = mid - 1;
+            } else if (nums[mid] < target) {
+                left = mid + 1;
+            } else {
+                i = mid;
+                if (isMore) {
+                    right = mid - 1;
+                } else {
+                    left = mid + 1;
+                }
+            }
+        }
+        return i;
+    }
+    const left = binarySearch(nums, target, true);
+    const right = binarySearch(nums, target, false);
+    return [left, right];
+};
+
+console.log(searchRange([5, 7, 7, 8, 8, 10], 8))
+console.log(searchRange([5, 7, 7, 8, 8, 10], 6))
+console.log(searchRange([], 0))
