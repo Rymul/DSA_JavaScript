@@ -3543,3 +3543,27 @@ var removeDuplicates2 = function(nums) {
 
 console.log(removeDuplicates2([1,1,1,2,2,3]))
 console.log(removeDuplicates2([0,0,1,1,1,1,2,3,3]))
+
+
+
+// 107. Binary Tree Level Order Traversal II
+
+var levelOrderBottom = function(root) {
+    if (!root) return [];
+    const queue = [root];
+    const levels = [];
+
+    while(queue.length) {
+        const qLength = queue.length;
+        const level = [];
+        for (let i = 0; i < qLength; i++) {
+            const currNode = queue.shift();
+            if (currNode.left) queue.push(currNode.left);
+            if (currNode.right) queue.push(currNode.right);
+            level.push(currNode.val);
+        }
+        levels.push(level);
+    } 
+    return levels.reverse();
+};
+
