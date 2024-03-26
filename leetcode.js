@@ -3567,3 +3567,37 @@ var levelOrderBottom = function(root) {
     return levels.reverse();
 };
 
+
+
+// 189. Rotate Array
+
+var rotateArr = function(nums, k) {
+    k = k % nums.length;
+    let left = 0;
+    let right = nums.length - 1;
+
+    nums = reverseArr(nums, left, right);
+
+    left = 0;
+    right = k - 1;
+    nums = reverseArr(nums, left, right);
+
+    left = k;
+    right = nums.length - 1;
+    nums = reverseArr(nums, left, right);
+    return nums;
+};
+
+const reverseArr = (nums, left, right) => {
+    while (left < right) {
+        let temp = nums[left];
+        nums[left] = nums[right];
+        nums[right] = temp;
+        left++;
+        right--;
+    }
+    return nums;
+}
+
+console.log(rotateArr([1,2,3,4,5,6,7], 3))
+console.log(rotateArr([-1,-100,3,99], 2))
