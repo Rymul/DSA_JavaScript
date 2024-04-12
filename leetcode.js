@@ -3625,3 +3625,15 @@ var canCompleteCircuit = function (gas, cost) {
 
 console.log(canCompleteCircuit([1,2,3,4,5], [3,4,5,1,2]))
 console.log(canCompleteCircuit([2,3,4], [3,4,3]))
+
+
+// 1832. Check if the Sentence Is Pangram
+
+var checkIfPangram = function(sentence) {
+    return new Set(sentence.split('')).size === 26
+};
+
+console.log(checkIfPangram("thequickbrownfoxjumpsoverthelazydog"))
+console.log(checkIfPangram("leetcode"))
+
+
