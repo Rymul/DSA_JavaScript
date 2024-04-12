@@ -3637,3 +3637,20 @@ console.log(checkIfPangram("thequickbrownfoxjumpsoverthelazydog"))
 console.log(checkIfPangram("leetcode"))
 
 
+// 2810. Faulty Keyboard
+
+var finalString = function(s) {
+    const arr = [];
+
+    for (let char of s) {
+        if (char === 'i') {
+            arr.reverse();
+        } else {
+            arr.push(char)
+        }
+    }
+    return arr.join('')
+};
+
+console.log(finalString("string"))
+console.log(finalString("poiinter"))
