@@ -3623,13 +3623,13 @@ var canCompleteCircuit = function (gas, cost) {
     return totalTank < 0 ? -1 : startingStation;
 };
 
-console.log(canCompleteCircuit([1,2,3,4,5], [3,4,5,1,2]))
-console.log(canCompleteCircuit([2,3,4], [3,4,3]))
+console.log(canCompleteCircuit([1, 2, 3, 4, 5], [3, 4, 5, 1, 2]))
+console.log(canCompleteCircuit([2, 3, 4], [3, 4, 3]))
 
 
 // 1832. Check if the Sentence Is Pangram
 
-var checkIfPangram = function(sentence) {
+var checkIfPangram = function (sentence) {
     return new Set(sentence.split('')).size === 26
 };
 
@@ -3639,7 +3639,7 @@ console.log(checkIfPangram("leetcode"))
 
 // 2810. Faulty Keyboard
 
-var finalString = function(s) {
+var finalString = function (s) {
     const arr = [];
 
     for (let char of s) {
@@ -3659,9 +3659,30 @@ console.log(finalString("poiinter"))
 
 // 2769. Find the Maximum Achievable Number
 
-var theMaximumAchievableX = function(num, t) {
-    return num + t + t
+var theMaximumAchievableX = function (num, t) {
+    return num + t * 2
 };
 
 console.log(theMaximumAchievableX(4, 1))
 console.log(theMaximumAchievableX(3, 2))
+
+
+
+// 1470. Shuffle the Array
+
+var shuffle = function (nums, n) {
+    let i = 0;
+    let count = 2 * n;
+    let res = [];
+
+    while (count) {
+        res.push(nums[i++]);
+        res.push(nums[n++]);
+        count -= 2;
+    }
+    return res
+};
+
+console.log(shuffle([2, 5, 1, 3, 4, 7], 3))
+console.log(shuffle([1, 2, 3, 4, 4, 3, 2, 1], 4))
+console.log(shuffle([1,1,2,2], 2))
