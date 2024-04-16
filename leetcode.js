@@ -3654,3 +3654,14 @@ var finalString = function(s) {
 
 console.log(finalString("string"))
 console.log(finalString("poiinter"))
+
+
+
+// 2769. Find the Maximum Achievable Number
+
+var theMaximumAchievableX = function(num, t) {
+    return num + t + t
+};
+
+console.log(theMaximumAchievableX(4, 1))
+console.log(theMaximumAchievableX(3, 2))
