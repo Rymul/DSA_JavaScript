@@ -3686,3 +3686,25 @@ var shuffle = function (nums, n) {
 console.log(shuffle([2, 5, 1, 3, 4, 7], 3))
 console.log(shuffle([1, 2, 3, 4, 4, 3, 2, 1], 4))
 console.log(shuffle([1,1,2,2], 2))
+
+
+
+// 2807. Insert Greatest Common Divisors in Linked List
+
+var insertGreatestCommonDivisors = function(head) {
+    const res = head;
+    let curr = head;
+
+    while (curr && curr.next) {
+        curr.next = new ListNode(gdc(curr.val, curr.next.val), curr.next);
+        curr = curr.next.next;
+    }
+    return res;
+};
+
+const gdc = (a, b) => {
+    if (!b) {
+        return a;
+    }
+    return gdc(b, a % b);
+}
