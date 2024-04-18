@@ -3719,3 +3719,24 @@ var convertTemperature = function(celsius) {
 
 console.log(convertTemperature(36.5))
 console.log(convertTemperature(122.11))
+
+
+
+// 2894. Divisible and Non-divisible Sums Difference
+
+var differenceOfSums = function(n, m) {
+    let divSum = 0;
+    let nonSum = 0;
+    for (let i = 0; i <= n; i++) {
+        if (i % m === 0) {
+            divSum += i;
+        } else {
+            nonSum += i
+        }
+    }
+    return nonSum - divSum
+};
+
+console.log(differenceOfSums(10, 3))
+console.log(differenceOfSums(5, 6))
+console.log(differenceOfSums(5, 1))
