@@ -3708,3 +3708,14 @@ const gdc = (a, b) => {
     }
     return gdc(b, a % b);
 }
+
+
+
+// 2469. Convert the Temperature
+
+var convertTemperature = function(celsius) {
+    return [celsius + 273.15, celsius * 1.8 + 32]
+};
+
+console.log(convertTemperature(36.5))
+console.log(convertTemperature(122.11))
