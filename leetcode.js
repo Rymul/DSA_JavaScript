@@ -3763,3 +3763,18 @@ var countPairs = function(nums, target) {
 
 console.log(countPairs([-1,1,2,3,1], 2))
 console.log(countPairs([-6,2,5,-2,-7,-1,3], -2))
+
+
+
+// 2413. Smallest Even Multiple
+
+var smallestEvenMultiple = function(n) {
+    if (n % 2 !== 0) {
+        return n * 2;
+    } else {
+        return n;
+    }
+};
+
+console.log(smallestEvenMultiple(5))
+console.log(smallestEvenMultiple(6))
