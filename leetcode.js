@@ -3778,3 +3778,24 @@ var smallestEvenMultiple = function(n) {
 
 console.log(smallestEvenMultiple(5))
 console.log(smallestEvenMultiple(6))
+
+
+// 2149. Rearrange Array Elements by Sign
+
+var rearrangeArray = function(nums) {
+    const res = new Array(nums.length);
+    let currPos = -2;
+    let currNeg = -1;
+    
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] > 0) {
+            res[currPos += 2] = nums[i];
+        } else {
+            res[currNeg += 2] = nums[i];
+        }
+    }
+    return res;
+};
+
+console.log(rearrangeArray([3,1,-2,-5,2,-4]))
+console.log(rearrangeArray([-1,1]))
