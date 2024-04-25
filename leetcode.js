@@ -3799,3 +3799,21 @@ var rearrangeArray = function(nums) {
 
 console.log(rearrangeArray([3,1,-2,-5,2,-4]))
 console.log(rearrangeArray([-1,1]))
+
+
+// 950. Reveal Cards In Increasing Order
+
+var deckRevealedIncreasing = function(deck) {
+    deck.sort((a, b) => a - b);
+    const revealed = [];
+    revealed.unshift(deck[deck.length - 1]);
+
+    for (let i = deck.length - 2; i >=0; i--) {
+        revealed.unshift(revealed.pop());
+        revealed.unshift(deck[i]);
+    }
+    return revealed;
+};
+
+console.log(deckRevealedIncreasing([17,13,11,2,3,5,7]))
+console.log(deckRevealedIncreasing([1,100]))
