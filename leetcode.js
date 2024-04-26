@@ -3817,3 +3817,22 @@ var deckRevealedIncreasing = function(deck) {
 
 console.log(deckRevealedIncreasing([17,13,11,2,3,5,7]))
 console.log(deckRevealedIncreasing([1,100]))
+
+
+// 1266. Minimum Time Visiting All Points
+
+var minTimeToVisitAllPoints = function(points) {
+    let totalTime = 0;
+
+    for (let i = 1; i < points.length; i++) {
+        const [prevX, prevY] = points[i - 1];
+        const [currX, currY] = points[i];
+        const diffX = Math.abs(currX - prevX);
+        const diffY = Math.abs(currY - prevY);
+        totalTime += Math.max(diffX, diffY);
+    }
+    return totalTime;
+};
+
+console.log(minTimeToVisitAllPoints([[1,1],[3,4],[-1,0]]))
+console.log(minTimeToVisitAllPoints([[3,2],[-2,2]]))
