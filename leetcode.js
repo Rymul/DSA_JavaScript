@@ -3836,3 +3836,24 @@ var minTimeToVisitAllPoints = function(points) {
 
 console.log(minTimeToVisitAllPoints([[1,1],[3,4],[-1,0]]))
 console.log(minTimeToVisitAllPoints([[3,2],[-2,2]]))
+
+
+
+// 1557. Minimum Number of Vertices to Reach All Nodes
+
+var findSmallestSetOfVertices = function(n, edges) {
+    const connected = {};
+    const res = [];
+    for (let path of edges) {
+        connected[path[1]] = true;
+    }
+    for (let i = 0; i < n; i++) {
+        if (!(i in connected)) {
+            res.push(i);
+        }
+    }
+    return res;
+};
+
+console.log(findSmallestSetOfVertices(6, [[0,1],[0,2],[2,5],[3,4],[4,2]]))
+console.log(findSmallestSetOfVertices(5, [[0,1],[2,1],[3,1],[1,4],[2,4]]))
