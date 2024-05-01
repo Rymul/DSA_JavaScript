@@ -3857,3 +3857,21 @@ var findSmallestSetOfVertices = function(n, edges) {
 
 console.log(findSmallestSetOfVertices(6, [[0,1],[0,2],[2,5],[3,4],[4,2]]))
 console.log(findSmallestSetOfVertices(5, [[0,1],[2,1],[3,1],[1,4],[2,4]]))
+
+
+
+// 2942. Find Words Containing Character
+
+var findWordsContaining = function(words, x) {
+    let res = [];
+    words.forEach((word, i) => {
+        if(word.split('').includes(x)) {
+            res.push(i);
+        }
+    })
+    return res;
+};
+
+console.log(findWordsContaining(["leet","code"],"e"))
+console.log(findWordsContaining(["abc","bcd","aaaa","cbc"], "a"))
+console.log(findWordsContaining(["abc","bcd","aaaa","cbc"], "z"))
