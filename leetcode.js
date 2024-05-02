@@ -3875,3 +3875,21 @@ var findWordsContaining = function(words, x) {
 console.log(findWordsContaining(["leet","code"],"e"))
 console.log(findWordsContaining(["abc","bcd","aaaa","cbc"], "a"))
 console.log(findWordsContaining(["abc","bcd","aaaa","cbc"], "z"))
+
+
+// 1844. Replace All Digits with Characters
+
+var replaceDigits = function(s) {
+    let res = s.split('');
+    for (let i = 0; i < res.length; i++) {
+        if (Number(res[i]) || res[i] === '0') {
+            let code = res[i - 1].charCodeAt(0);
+            code += Number(res[i]);
+            res[i] = String.fromCharCode(code)
+        }
+    }
+    return res.join('')
+};
+
+console.log(replaceDigits("a1c1e1"))
+console.log(replaceDigits("a1b2c3d4e"))
