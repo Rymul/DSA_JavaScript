@@ -3911,3 +3911,18 @@ var sumOddLengthSubarrays = function(arr) {
 
 console.log(sumOddLengthSubarrays([1,4,2,5,3]))
 console.log(sumOddLengthSubarrays([1,2]))
+
+
+
+// 2396. Strictly Palindromic Number
+
+var isStrictlyPalindromic = function(n) {
+    for (let i = 2; i < n - 1; i++) {
+        let compare = String(n.toString(i)).split('')
+        if (compare.join('') !== compare.reverse().join('')) return false;
+    }
+    return true;
+};
+
+console.log(isStrictlyPalindromic(9))
+console.log(isStrictlyPalindromic(4))
