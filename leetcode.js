@@ -3926,3 +3926,23 @@ var isStrictlyPalindromic = function(n) {
 
 console.log(isStrictlyPalindromic(9))
 console.log(isStrictlyPalindromic(4))
+
+
+
+// 1365. How Many Numbers Are Smaller Than the Current Number
+
+var smallerNumbersThanCurrent = function(nums) {
+    let res = [];
+    for (let i of nums) {
+        const counter = nums.reduce((count, num) => {
+            if (num < i) count++;
+            return count;
+        }, 0);
+        res.push(counter);
+    }
+    return res;
+};
+
+console.log(smallerNumbersThanCurrent([8,1,2,2,3]))
+console.log(smallerNumbersThanCurrent([6,5,4,8]))
+console.log(smallerNumbersThanCurrent([7,7,7,7]))
