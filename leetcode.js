@@ -3946,3 +3946,21 @@ var smallerNumbersThanCurrent = function(nums) {
 console.log(smallerNumbersThanCurrent([8,1,2,2,3]))
 console.log(smallerNumbersThanCurrent([6,5,4,8]))
 console.log(smallerNumbersThanCurrent([7,7,7,7]))
+
+
+// 1281. Subtract the Product and Sum of Digits of an Integer
+
+var subtractProductAndSum = function(n) {
+    let product = 1;
+    let sum = 0;
+    while (n > 0) {
+        const digit = n % 10;
+        product *= digit;
+        sum += digit
+        n = Math.floor(n / 10);
+    }
+    return product - sum
+};
+
+console.log(subtractProductAndSum(234))
+console.log(subtractProductAndSum(4421))
