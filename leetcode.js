@@ -1,3 +1,10 @@
+function TreeNode(val, left, right) {
+    this.val = (val===undefined ? 0 : val)
+    this.left = (left===undefined ? null : left)
+    this.right = (right===undefined ? null : right)
+}
+
+
 // 83. Remove Duplicates from Sorted List
 
 var deleteDuplicates = function (head) {
@@ -3964,3 +3971,21 @@ var subtractProductAndSum = function(n) {
 
 console.log(subtractProductAndSum(234))
 console.log(subtractProductAndSum(4421))
+
+
+
+// 654. Maximum Binary Tree
+
+var constructMaximumBinaryTree = function(nums) {
+    let max = Math.max(...nums);
+    let root = new TreeNode(max);
+    let i = nums.indexOf(max);
+
+    if (nums.slice(0, i).length > 0) {
+        root.left = constructMaximumBinaryTree(nums.slice(0, i));
+    }
+    if (nums.slice(i + 1).length > 0) {
+        root.right = constructMaximumBinaryTree(nums.slice(i + 1));
+    }
+    return root;
+};
