@@ -3989,3 +3989,20 @@ var constructMaximumBinaryTree = function(nums) {
     }
     return root;
 };
+
+
+// 2114. Maximum Number of Words Found in Sentences
+
+var mostWordsFound = function(sentences) {
+    let count = 0;
+    const split = sentences.map(sentence => sentence.split(' '));
+    for (let i = 0; i < split.length; i++) {
+        if (split[i].length > count) {
+            count = split[i].length
+        }
+    }
+    return count;
+};
+
+console.log(mostWordsFound(["alice and bob love leetcode", "i think so too", "this is great thanks very much"]))
+console.log(mostWordsFound(["please wait", "continue to fight", "continue to win"]))
