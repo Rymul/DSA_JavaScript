@@ -4006,3 +4006,18 @@ var mostWordsFound = function(sentences) {
 
 console.log(mostWordsFound(["alice and bob love leetcode", "i think so too", "this is great thanks very much"]))
 console.log(mostWordsFound(["please wait", "continue to fight", "continue to win"]))
+
+
+// 1528. Shuffle String
+
+var restoreString = function(s, indices) {
+    let res = [];
+    s = s.split('');
+    for (let i = 0; i < s.length; i++) {
+        res[indices[i]] = s[i];
+    }
+    return res.join('')
+};
+
+console.log(restoreString("codeleet", [4,5,6,7,0,2,1,3]))
+console.log(restoreString("abc", [0,1,2]))
