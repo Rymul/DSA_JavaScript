@@ -4021,3 +4021,22 @@ var restoreString = function(s, indices) {
 
 console.log(restoreString("codeleet", [4,5,6,7,0,2,1,3]))
 console.log(restoreString("abc", [0,1,2]))
+
+
+
+// 1859. Sorting the Sentence
+
+var sortSentence = function(s) {
+    let res = [];
+    let words = s.split(' ');
+
+    for (let i = 0; i < words.length; i++) {
+        let index = words[i][words[i].length - 1] - 1;
+        res[index] = words[i].substring(0, words[i].length - 1);
+    }
+    return res.join(' ')
+};
+
+console.log(sortSentence("is2 sentence4 This1 a3"))
+console.log(sortSentence("Myself2 Me1 I4 and3"))
+
