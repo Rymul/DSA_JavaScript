@@ -4040,3 +4040,25 @@ var sortSentence = function(s) {
 console.log(sortSentence("is2 sentence4 This1 a3"))
 console.log(sortSentence("Myself2 Me1 I4 and3"))
 
+
+
+// 2828. Check if a String Is an Acronym of Words
+
+var isAcronym = function(words, s) {
+    let acronym = false;
+    if (s.length === words.length) {
+        for (let i= 0; i < words.length; i++) {
+            if (words[i][0] === s[i]) {
+                acronym = true;
+            } else {
+                acronym = false;
+                break;
+            }
+        }
+    }
+    return acronym;
+};
+
+console.log(isAcronym(["alice","bob","charlie"], "abc"))
+console.log(isAcronym(["an","apple"], "a"))
+console.log(isAcronym(["never","gonna","give","up","on","you"], "ngguoy"))
