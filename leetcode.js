@@ -4062,3 +4062,19 @@ var isAcronym = function(words, s) {
 console.log(isAcronym(["alice","bob","charlie"], "abc"))
 console.log(isAcronym(["an","apple"], "a"))
 console.log(isAcronym(["never","gonna","give","up","on","you"], "ngguoy"))
+
+
+// 2974. Minimum Number Game
+
+var numberGame = function(nums) {
+    nums.sort((a, b) => a - b);
+    for (let i = 0; i < nums.length; i += 2) {
+        if (i + 1 < nums.length) {
+            [nums[i], nums[i + 1]] = [nums[i + 1], nums[i]]
+        }
+    }
+    return nums;
+};
+
+console.log(numberGame([5,4,2,3]))
+console.log(numberGame([2,5]))
