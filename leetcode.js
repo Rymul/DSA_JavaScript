@@ -4078,3 +4078,19 @@ var numberGame = function(nums) {
 
 console.log(numberGame([5,4,2,3]))
 console.log(numberGame([2,5]))
+
+
+
+// 1732. Find the Highest Altitude
+
+var largestAltitude = function(gain) {
+    let res = [];
+    res[0] = 0
+    for (let i =0; i < gain.length; i++) {
+        res[i + 1] = res[i] + gain[i];
+    }
+    return Math.max(...res);
+};
+
+console.log(largestAltitude([-5,1,5,0,-7]))
+console.log(largestAltitude([-4,-3,-2,-1,4,3,2]))
