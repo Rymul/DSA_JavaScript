@@ -4094,3 +4094,17 @@ var largestAltitude = function(gain) {
 
 console.log(largestAltitude([-5,1,5,0,-7]))
 console.log(largestAltitude([-4,-3,-2,-1,4,3,2]))
+
+
+
+// 3131. Find the Integer Added to Array I
+
+var addedInteger = function(nums1, nums2) {
+    nums1.sort((a,b ) => a - b);
+    nums2.sort((a,b ) => a - b);
+    return nums2[0] - nums1[0];
+};
+
+console.log(addedInteger([2,6,4], [9,7,5]))
+console.log(addedInteger([10], [5]))
+console.log(addedInteger([1,1,1,1], [1,1,1,1]))
