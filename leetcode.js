@@ -4120,3 +4120,25 @@ console.log(sortBy([5, 4, 1, 2, 3], fn = (x) => x))
 console.log(sortBy([{"x": 1}, {"x": 0}, {"x": -1}], fn = (d) => d.x))
 console.log(sortBy([[3, 4], [5, 2], [10, 1]], fn = (x) => x[1]))
 
+
+// 1534. Count Good Triplets
+
+var countGoodTriplets = function(arr, a, b, c) {
+    let count = 0;
+    let len = arr.length;
+
+    for (let i = 0; i < len; i++) {
+        for (let j = i + 1; j < len; j++) {
+            for (let k = j + 1; k < len; k++) {
+                if (Math.abs(arr[i] - arr[j]) <= a
+                && Math.abs(arr[j] - arr[k]) <= b
+                && Math.abs(arr[i] - arr[k]) <= c)
+                count++;
+            }
+        }
+    }
+    return count;
+};
+
+console.log(countGoodTriplets([3,0,1,1,9,7], 7, 2, 3))
+console.log(countGoodTriplets([1,1,2,2,3], 0, 0, 1))
