@@ -4142,3 +4142,19 @@ var countGoodTriplets = function(arr, a, b, c) {
 
 console.log(countGoodTriplets([3,0,1,1,9,7], 7, 2, 3))
 console.log(countGoodTriplets([1,1,2,2,3], 0, 0, 1))
+
+
+
+// 2011. Final Value of Variable After Performing Operations
+
+var finalValueAfterOperations = function(operations) {
+    let sum = 0;
+    for (const operation of operations) {
+        operation.includes('+') ? sum++ : sum--;
+    }
+    return sum;
+};
+
+console.log(finalValueAfterOperations(["--X","X++","X++"]))
+console.log(finalValueAfterOperations(["++X","++X","X++"]))
+console.log(finalValueAfterOperations(["X++","++X","--X","X--"]))
