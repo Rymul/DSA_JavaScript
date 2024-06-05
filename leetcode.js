@@ -4158,3 +4158,20 @@ var finalValueAfterOperations = function(operations) {
 console.log(finalValueAfterOperations(["--X","X++","X++"]))
 console.log(finalValueAfterOperations(["++X","++X","X++"]))
 console.log(finalValueAfterOperations(["X++","++X","--X","X--"]))
+
+
+
+// 2656. Maximum Sum With Exactly K Elements 
+
+var maximizeSum = function(nums, k) {
+    let max = Math.max(...nums)
+    let sum = 0;
+    for (let i = 0; i < k; i++) {
+        sum += max;
+        max += 1;
+    }
+    return sum;
+};
+
+console.log(maximizeSum([1,2,3,4,5], 3))
+console.log(maximizeSum([5,5,5], 2))
