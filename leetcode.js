@@ -4175,3 +4175,31 @@ var maximizeSum = function(nums, k) {
 
 console.log(maximizeSum([1,2,3,4,5], 3))
 console.log(maximizeSum([5,5,5], 2))
+
+
+
+// 287. Find the Duplicate Number
+
+var findDuplicate = function(nums) {
+    let slow = nums[0];
+    let fast = nums[0];
+
+    while (true) {
+        slow = nums[slow];
+        fast = nums[nums[fast]];
+        if (slow === fast) {
+            break;
+        }
+    }
+    let slow2 = nums[0];
+
+    while(slow !== slow2) {
+        slow = nums[slow];
+        slow2 = nums[slow2];
+    }
+    return slow;
+};
+
+console.log(findDuplicate([1,3,4,2,2]))
+console.log(findDuplicate([3,1,3,4,2]))
+console.log(findDuplicate([3,3,3,3,3]))
