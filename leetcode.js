@@ -4203,3 +4203,21 @@ var findDuplicate = function(nums) {
 console.log(findDuplicate([1,3,4,2,2]))
 console.log(findDuplicate([3,1,3,4,2]))
 console.log(findDuplicate([3,3,3,3,3]))
+
+
+
+// 3065. Minimum Operations to Exceed Threshold Value I
+
+var minOperations = function(nums, k) {
+    let operations = 0;
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] < k) {
+            operations++;
+        }
+    }
+    return operations;
+};
+
+console.log(minOperations([2,11,10,1,3], 10))
+console.log(minOperations([1,1,2,4,9], 1))
+console.log(minOperations([1,1,2,4,9], 9))
