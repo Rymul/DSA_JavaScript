@@ -4221,3 +4221,30 @@ var minOperations = function(nums, k) {
 console.log(minOperations([2,11,10,1,3], 10))
 console.log(minOperations([1,1,2,4,9], 1))
 console.log(minOperations([1,1,2,4,9], 9))
+
+
+
+// 2373. Largest Local Values in a Matrix
+
+var largestLocal = function(grid) {
+    const res = [];
+    const len = grid.length;
+
+    for (let i = 1; i < len - 1; i++) {
+        const tempRow = [];
+        for (let j = 1; j < len - 1; j++) {
+            let temp = 0;
+            for (let k = i - 1; k <= i + 1; k++) {
+                for (let l = j - 1; l <= j + 1; l++) {
+                    temp = Math.max(temp, grid[k][l]);
+                }
+            }
+            tempRow.push(temp);
+        }
+        res.push(tempRow);
+    }
+    return res;
+};
+
+console.log(largestLocal([[9,9,8,1],[5,6,2,6],[8,2,6,4],[6,2,2,2]]))
+console.log(largestLocal([[1,1,1,1,1],[1,1,1,1,1],[1,1,2,1,1],[1,1,1,1,1],[1,1,1,1,1]]))
