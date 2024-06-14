@@ -4248,3 +4248,19 @@ var largestLocal = function(grid) {
 
 console.log(largestLocal([[9,9,8,1],[5,6,2,6],[8,2,6,4],[6,2,2,2]]))
 console.log(largestLocal([[1,1,1,1,1],[1,1,1,1,1],[1,1,2,1,1],[1,1,1,1,1],[1,1,1,1,1]]))
+
+
+
+// 2037. Minimum Number of Moves to Seat Everyone
+
+var minMovesToSeat = function(seats, students) {
+    let res = 0;
+    seats.sort((a, b) => b - a);
+    students.sort((a, b) => b - a);
+    seats.forEach((seat, i) => res = res + Math.abs(seat - students[i]));
+    return res;
+};
+
+console.log(minMovesToSeat([3,1,5], [2,7,4]))
+console.log(minMovesToSeat([4,1,5,9], [1,3,2,6]))
+console.log(minMovesToSeat([2,2,6,6], [1,3,2,6]))
